@@ -3,10 +3,9 @@
 const { ServiceBroker } = require("moleculer");
 const DatabaseServices = require("./database/Database.ServiceTemplate.js");
 
-
-
-const broker = new ServiceBroker({ logger: console });
-
+const broker = new ServiceBroker({
+    transporter: "TCP"
+})
 
 
 DatabaseServices.forEach((service) => {

@@ -40,7 +40,6 @@ function CreateDBService(table) {
     if (Models[table] !== undefined)
         return {
             name: `DB_${table}s`,
-
             mixins: [
                 DbService,
                 serviceActions
@@ -62,6 +61,7 @@ for (var item in Models) {
         throw new Error(`Error: model of table '${item}' needs to have a field 'id' as a Primary Key.`);
     if (Models[item].define.id.primaryKey !== true)
         throw new Error(`Error: field 'id' of table '${item}' needs to be set as a Primary Key.`);
+
 
     DatabaseServices.push(CreateDBService(item));
     console.log(DatabaseServices);

@@ -6,25 +6,31 @@ const passwordHash = require('password-hash');
 // Filters applied when searching for entities
 // Elements correspond to the columns of the table
 const Filters_Cidadadao = {
-    full: ["id", "name", "password"],
+    full: ["id", "name", "password", "email", "mobilePhone", "cityId"],
     restricted: ["name"],
 };
 
 module.exports = {
-    name: "cidadaos",
+    name: "cidadao-service",
 
     actions: {
 
         create: {
             params: {
                 name: "string",
-                password: "string"
+                password: "string",
+                email: "string",
+                mobilePhone: "string",
+                cityId: "number"
             },
             handler(ctx) {
                 return this.generateHash(ctx.params.password)
                     .then((res) => this.DB_Cidadaos.insert(ctx, {
                         name: ctx.params.name,
-                        password: res
+                        password: res,
+                        email: ctx.params.email,
+                        mobilePhone: ctx.params.mobilePhone,
+                        cityId: ctx.params.cityId
                     }))
                     .then(() => {
                         console.log("User Account Created", ctx.params.name);
@@ -61,6 +67,6 @@ module.exports = {
         },
     },
     created() {
-        this.DB_Cidadaos = new Database("Cidadaos", Filters_Cidadadao.restricted);
+        this.DB_Cidadaos = new Database("Cidadaos", Filters_Cidadadao.full);
     }
 };

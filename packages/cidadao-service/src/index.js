@@ -14,7 +14,6 @@ DatabaseServices.forEach((service) => {
 });
 
 broker.loadServices("./src/services");
-
 broker.start().then(() => {
     broker.repl()
 })

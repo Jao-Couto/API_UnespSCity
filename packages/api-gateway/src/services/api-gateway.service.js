@@ -15,6 +15,7 @@ module.exports = {
                     "POST /assinante": "v1.assinante-service.create",
                     "POST /assinante": "v1.assinante-service.create",
                     "POST /cidade": "cidade-service.create",
+                    "GET /cidade": "cidade-service.getAll",
                 }
             }
         ]

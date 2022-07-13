@@ -11,7 +11,7 @@ const Filters_Cidadadao = {
 };
 
 module.exports = {
-    name: "cidades",
+    name: "cidade-service",
 
     actions: {
 
@@ -24,7 +24,7 @@ module.exports = {
                     name: ctx.params.name
                 })
                     .then(() => {
-                        console.log("User Account Created", ctx.params.name);
+                        console.log("City Created: ", ctx.params.name);
                         return "ok"
                     })
                     .catch((err) => {
@@ -40,7 +40,7 @@ module.exports = {
             },
             handler(ctx) {
                 return this.DB_Cidades.find(ctx, {})
-                    .then((res) => console.log("Search Complete", res.data))
+                    .then((res) => { console.log("Search Complete", res.data); return res.data })
                     .catch((err) => {
                         console.log("error: " + err);
                     });

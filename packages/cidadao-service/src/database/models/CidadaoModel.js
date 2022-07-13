@@ -11,11 +11,6 @@ module.exports = {
             autoIncrement: true
         },
 
-        city: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-        },
-
         name: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -36,6 +31,15 @@ module.exports = {
             type: Sequelize.CHAR(14),
             allowNull: false,
             unique: true
+        },
+
+        cityId: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'cidades',
+                key: 'id'
+            }
         },
     },
     options: {
