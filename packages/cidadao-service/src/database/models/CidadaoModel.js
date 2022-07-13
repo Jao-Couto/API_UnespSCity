@@ -11,6 +11,11 @@ module.exports = {
             autoIncrement: true
         },
 
+        city: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+        },
+
         name: {
             type: Sequelize.STRING,
             allowNull: false,
@@ -19,11 +24,18 @@ module.exports = {
         email: {
             type: Sequelize.STRING,
             allowNull: false,
+            unique: true
         },
 
         password: {
             type: Sequelize.TEXT,
             allowNull: false
+        },
+
+        mobilePhone: {
+            type: Sequelize.CHAR(14),
+            allowNull: false,
+            unique: true
         },
     },
     options: {
