@@ -3,7 +3,7 @@
 const Sequelize = require("sequelize");
 
 module.exports = {
-    name: "cidadaos",
+    name: "cidadao",
     define: {
         id: { // id must always exist
             type: Sequelize.INTEGER,

@@ -2,5 +2,5 @@ const CidadeModel = require("./CidadeModel");
 
 
 module.exports = {
-    Cidades: CidadeModel,
+    Cidade: CidadeModel,
 };

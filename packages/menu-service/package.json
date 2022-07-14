@@ -1,5 +1,5 @@
 {
-    "name": "cidade-service",
+    "name": "menu-service",
     "version": "0.0.1",
     "scripts": {
         "start": "node src/index.js"

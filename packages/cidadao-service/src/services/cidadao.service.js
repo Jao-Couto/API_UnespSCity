@@ -49,9 +49,13 @@ module.exports = {
             },
             handler(ctx) {
                 return this.DB_Cidadaos.find(ctx, {})
-                    .then((res) => console.log("Search Complete", res.data))
+                    .then((res) => {
+                        console.log("Search Complete", res.data);
+                        return res.data
+                    })
                     .catch((err) => {
                         console.log("error: " + err);
+                        return []
                     });
             }
         },
@@ -67,6 +71,6 @@ module.exports = {
         },
     },
     created() {
-        this.DB_Cidadaos = new Database("Cidadaos", Filters_Cidadadao.full);
+        this.DB_Cidadaos = new Database("Cidadao", Filters_Cidadadao.full);
     }
 };

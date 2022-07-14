@@ -1,11 +1,10 @@
 {
-    "name": "cidade-service",
+    "name": "menucidade-service",
     "version": "0.0.1",
     "scripts": {
         "start": "node src/index.js"
     },
     "dependencies": {
-        "lite-server": "^2.6.1",
         "micro": "^9.3.4",
         "moleculer": "^0.14.19",
         "moleculer-db": "^0.8.17",

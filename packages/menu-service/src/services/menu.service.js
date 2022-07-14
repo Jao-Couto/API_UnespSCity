@@ -11,7 +11,7 @@ const Filters_Cidadadao = {
 };
 
 module.exports = {
-    name: "cidade-service",
+    name: "menu-service",
 
     actions: {
 
@@ -20,11 +20,11 @@ module.exports = {
                 name: "string"
             },
             handler(ctx) {
-                return this.DB_Cidades.insert(ctx, {
+                return this.DB_Menu.insert(ctx, {
                     name: ctx.params.name
                 })
                     .then(() => {
-                        console.log("City Created: ", ctx.params.name);
+                        console.log("Menu Created: ", ctx.params.name);
                         return "ok"
                     })
                     .catch((err) => {
@@ -39,7 +39,7 @@ module.exports = {
 
             },
             handler(ctx) {
-                return this.DB_Cidades.find(ctx, {})
+                return this.DB_Menu.find(ctx, {})
                     .then((res) => { console.log("Search Complete", res.data); return res.data })
                     .catch((err) => {
                         console.log("error: " + err);
@@ -52,6 +52,6 @@ module.exports = {
     methods: {
     },
     created() {
-        this.DB_Cidades = new Database("Cidade", Filters_Cidadadao.full);
+        this.DB_Menu = new Database("Menu", Filters_Cidadadao.full);
     }
 };

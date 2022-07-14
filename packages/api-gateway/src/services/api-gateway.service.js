@@ -11,11 +11,17 @@ module.exports = {
                 aliases: {
                     "POST /catalogo": "v1.catalogo-service.create",
                     "GET /catalogo": "v1.catalogo-service.list",
-                    "POST /avaliacao": "v1.avaliacao-service.avaliar",
-                    "POST /assinante": "v1.assinante-service.create",
-                    "POST /assinante": "v1.assinante-service.create",
+
                     "POST /cidade": "cidade-service.create",
                     "GET /cidade": "cidade-service.getAll",
+                    "POST /cidadao": "cidadao-service.create",
+                    "GET /cidadao": "cidadao-service.getAll",
+                    "POST /menu": "menu-service.create",
+                    "GET /menu": "menu-service.getAll",
+                    "POST /menucidade": "menucidade-service.create",
+                    "GET /menucidade": "menucidade-service.getAll",
+                    "POST /submenu": "submenu-service.create",
+                    "GET /submenu": "submenu-service.getAll",
                 }
             }
         ]

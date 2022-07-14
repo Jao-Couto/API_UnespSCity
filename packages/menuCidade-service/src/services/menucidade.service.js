@@ -5,26 +5,31 @@ const passwordHash = require('password-hash');
 
 // Filters applied when searching for entities
 // Elements correspond to the columns of the table
-const Filters_Cidadadao = {
-    full: ["id", "name"],
-    restricted: ["name"],
+const Filters_MenuCidade = {
+    full: ["id", "cityId", "menuId"],
+    restricted: ["cityId"],
 };
 
 module.exports = {
-    name: "cidade-service",
-
+    name: "menucidade-service",
+    dependencies: [
+        "menu-service",
+        "submenu-service"
+    ],
     actions: {
 
         create: {
             params: {
-                name: "string"
+                cityId: "string",
+                menuId: "string"
             },
             handler(ctx) {
-                return this.DB_Cidades.insert(ctx, {
-                    name: ctx.params.name
+                return this.DB_MenuCidade.insert(ctx, {
+                    cityId: ctx.params.cityId,
+                    menuId: ctx.params.menuId
                 })
                     .then(() => {
-                        console.log("City Created: ", ctx.params.name);
+                        console.log("MenuCidade Created: ", ctx.params.cityId);
                         return "ok"
                     })
                     .catch((err) => {
@@ -39,7 +44,7 @@ module.exports = {
 
             },
             handler(ctx) {
-                return this.DB_Cidades.find(ctx, {})
+                return this.DB_MenuCidade.find(ctx, {})
                     .then((res) => { console.log("Search Complete", res.data); return res.data })
                     .catch((err) => {
                         console.log("error: " + err);
@@ -52,6 +57,6 @@ module.exports = {
     methods: {
     },
     created() {
-        this.DB_Cidades = new Database("Cidade", Filters_Cidadadao.full);
+        this.DB_MenuCidade = new Database("MenuCidade", Filters_MenuCidade.full);
     }
 };

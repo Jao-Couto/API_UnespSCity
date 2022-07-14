@@ -1,5 +1,5 @@
 const CidadaoModel = require("./CidadaoModel");
 
 module.exports = {
-    Cidadaos: CidadaoModel,
+    Cidadao: CidadaoModel,
 };
