@@ -17,9 +17,12 @@ DatabaseServices.forEach((service) => {
 
 broker.loadServices("./src/services");
 broker.start().then(() => {
-    broker.call("posts.update", { id: 2, title: "Modified post title" })
-        .then(res => console.log("Post updated!"))
-        .catch(err => console.error("Unable to update Post!", err));
+    broker.call("cidadao-service.create", { name: "José Silva", email: "jose@gmail.com", password: "senha123", mobilePhone: "18999999999", cityId: 1 })
+        .then(res => console.log("Cadastrado!"))
+        .catch(err => console.error("Error", err));
+    broker.call("cidadao-service.create", { name: "Maria Silva", email: "maria@gmail.com", password: "senha123", mobilePhone: "18999998888", cityId: 2 })
+        .then(res => console.log("Cadastrado!"))
+        .catch(err => console.error("Error", err));
     broker.repl()
 })
 

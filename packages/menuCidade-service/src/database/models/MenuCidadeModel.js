@@ -17,7 +17,7 @@ module.exports = {
             references: {
                 model: 'cidades',
                 key: 'id'
-            }
+            },
         },
 
         menuId: {

@@ -18,7 +18,7 @@ module.exports = {
         create: {
             params: {
                 name: "string",
-                menuId: "string"
+                menuId: "number"
             },
             handler(ctx) {
                 return this.DB_Submenu.insert(ctx, {
@@ -42,6 +42,20 @@ module.exports = {
             },
             handler(ctx) {
                 return this.DB_Submenu.find(ctx, {})
+                    .then((res) => { console.log("Search Complete", res.data); return res.data })
+                    .catch((err) => {
+                        console.log("error: " + err);
+                        return []
+                    });
+            }
+        },
+
+        getMenu: {
+            params: {
+                menuId: "number"
+            },
+            handler(ctx) {
+                return this.DB_Submenu.find(ctx, { query: { menuId: ctx.params.menuId } })
                     .then((res) => { console.log("Search Complete", res.data); return res.data })
                     .catch((err) => {
                         console.log("error: " + err);

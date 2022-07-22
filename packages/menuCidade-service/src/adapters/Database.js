@@ -628,6 +628,32 @@ class Database {
             });
     }
 
+    /**
+   * 	Remove several entities with the given query
+   *
+   * @param {Object} ctx - Will serve to call a service action: ctx.call
+   * @param {String} query - Clause WHERE --> ex:  { username: "username", age: { $lt: 5 } }
+   *
+   * @returns {Promise}
+   */
+    rawQuery(ctx, query) {
+        // const [results, metadata] = await ctx.query("UPDATE users SET y = 42 WHERE x = 12");
+        return ctx.call(`${this.table}.rawQuery`, { query: query })
+            .then((res) => Promise.resolve({
+                name: "Operation Successful",
+                message: `Delete Complete: ${res} element(s) deleted`,
+                data: res
+            }))
+            .catch((err) => {
+                if (err.name && err.message && !err.type && !err.code && !err.ctx)
+                    return Promise.reject(err);
+                else
+                    return Promise.reject({
+                        name: "Unkown Error",
+                        message: "Internal Error: something went wrong while deleting the entities"
+                    });
+            });
+    }
 }
 
 

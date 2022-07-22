@@ -6,7 +6,7 @@ const passwordHash = require('password-hash');
 // Filters applied when searching for entities
 // Elements correspond to the columns of the table
 const Filters_Cidadadao = {
-    full: ["id", "name"],
+    full: ["id", "name", "logo"],
     restricted: ["name"],
 };
 
@@ -17,11 +17,13 @@ module.exports = {
 
         create: {
             params: {
-                name: "string"
+                name: "string",
+                logo: "string"
             },
             handler(ctx) {
                 return this.DB_Menu.insert(ctx, {
-                    name: ctx.params.name
+                    name: ctx.params.name,
+                    logo: ctx.params.logo
                 })
                     .then(() => {
                         console.log("Menu Created: ", ctx.params.name);

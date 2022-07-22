@@ -14,14 +14,22 @@ module.exports = {
 
                     "POST /cidade": "cidade-service.create",
                     "GET /cidade": "cidade-service.getAll",
+
                     "POST /cidadao": "cidadao-service.create",
                     "GET /cidadao": "cidadao-service.getAll",
+                    "POST /cidadao/login": "cidadao-service.login",
+
                     "POST /menu": "menu-service.create",
                     "GET /menu": "menu-service.getAll",
+
                     "POST /menucidade": "menucidade-service.create",
-                    "GET /menucidade": "menucidade-service.getAll",
+                    "GET /menucidade": "menucidade-service.getMenuCidade",
+
                     "POST /submenu": "submenu-service.create",
                     "GET /submenu": "submenu-service.getAll",
+
+                    "POST /praca": "praca-service.create",
+                    "GET /praca": "praca-service.getAll",
                 }
             }
         ]

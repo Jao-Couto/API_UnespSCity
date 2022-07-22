@@ -5,7 +5,6 @@
         "start": "node src/index.js"
     },
     "dependencies": {
-        "micro": "^9.3.4",
         "moleculer": "^0.14.19",
         "moleculer-db": "^0.8.17",
         "moleculer-db-adapter-sequelize": "^0.2.13",

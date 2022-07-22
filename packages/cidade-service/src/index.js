@@ -15,6 +15,8 @@ DatabaseServices.forEach((service) => {
 broker.loadServices("./src/services");
 
 broker.start().then(() => {
+    broker.call("cidade-service.create", { name: "Presidente Prudente" });
+    broker.call("cidade-service.create", { name: "Álvarez Machado" });
     broker.repl()
 })
 

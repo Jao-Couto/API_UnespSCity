@@ -13,38 +13,58 @@ const Filters_MenuCidade = {
 module.exports = {
     name: "menucidade-service",
     dependencies: [
-        "menu-service",
-        "submenu-service"
     ],
     actions: {
 
         create: {
             params: {
-                cityId: "string",
-                menuId: "string"
+                cityId: "number",
+                menuId: "number"
             },
             handler(ctx) {
-                return this.DB_MenuCidade.insert(ctx, {
-                    cityId: ctx.params.cityId,
-                    menuId: ctx.params.menuId
-                })
-                    .then(() => {
-                        console.log("MenuCidade Created: ", ctx.params.cityId);
-                        return "ok"
-                    })
+                return this.DB_MenuCidade.findOne(ctx, { query: { cityId: ctx.params.cityId, menuId: ctx.params.menuId } })
+                    .then((res) => { console.log(res); return "Já Cadastrado" })
+                    .catch((err) => {
+                        if (err.name == 'Nothing Found')
+                            this.DB_MenuCidade.insert(ctx, {
+                                cityId: ctx.params.cityId,
+                                menuId: ctx.params.menuId
+                            })
+                                .then(() => {
+                                    console.log("MenuCidade Created: ", ctx.params.cityId);
+                                    return "ok"
+                                })
+                                .catch((err) => {
+                                    console.log(err);
+                                    return "error"
+                                });
+                        else return err
+                    });
+
+            }
+        },
+
+        getOne: {
+            params: {
+                cityId: "number",
+                menuId: "number"
+            },
+            handler(ctx) {
+                return this.DB_MenuCidade.findOne(ctx, { query: { cityId: ctx.params.cityId, menuId: ctx.params.menuId } })
+                    .then((res) => { console.log("Search Complete", res); return res.data })
                     .catch((err) => {
                         console.log(err);
-                        return "error"
+                        return []
                     });
             }
         },
 
-        getAll: {
+        getMenuCidade: {
             params: {
-
+                cityId: "string"
             },
             handler(ctx) {
-                return this.DB_MenuCidade.find(ctx, {})
+                return this.DB_MenuCidade.rawQuery(ctx, "Select menus.id as menuId, menus.name as menuName, submenus.id as subId, submenus.name as subName from menucidades INNER JOIN menus on menus.id = menucidades.menuId INNER JOIN submenus on submenus.menuId = menus.id WHERE menucidades.cityId = " + ctx.params.cityId)
                     .then((res) => { console.log("Search Complete", res.data); return res.data })
                     .catch((err) => {
                         console.log("error: " + err);

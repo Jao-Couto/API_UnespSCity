@@ -251,7 +251,7 @@ class Database {
      *
      *	Search Fields:
      *  - query:	{type: "Object", optional: true}   --> ex:  { username: "username", age: { $lt: 5 } }
-     *  - filter:	{type: "Array", optional: true, item: "String"}   --> ex:  ["id", "username"]
+     *  - filter:	{type: "Array", optio inal: true,tem: "String"}   --> ex:  ["id", "username"]
      *  - limit:	{type: "Number", optional: true}   --> ex:  10
      *
      * @param {Object} ctx - Will serve to call a service action: ctx.call

@@ -16,6 +16,11 @@ module.exports = {
             allowNull: false,
             unique: true
         },
+
+        logo: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
     },
     options: {
         timestamps: false

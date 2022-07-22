@@ -29,7 +29,12 @@ const serviceActions = {
 
         removeAll(ctx) {
             return this.adapter.clear();
-        }
+        },
+
+        rawQuery(ctx) {
+            console.log(this.adapter);
+            return this.adapter.db.query(ctx.params.query);
+        },
 
     }
 }

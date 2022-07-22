@@ -60,6 +60,28 @@ module.exports = {
             }
         },
 
+        login: {
+            params: {
+                email: "string",
+                password: "string",
+            },
+            handler(ctx) {
+                return this.generateHash(ctx.params.password)
+                    .then((res) => this.DB_Cidadaos.find(ctx, {
+                        email: ctx.params.email,
+                        password: res,
+                    }))
+                    .then(() => {
+                        console.log("User Account loged: ", ctx.params.email);
+                        return "ok"
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                        return "error"
+                    });
+            }
+        },
+
     },
     methods: {
         generateHash(value) {
