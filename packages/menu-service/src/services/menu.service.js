@@ -18,12 +18,14 @@ module.exports = {
         create: {
             params: {
                 name: "string",
-                logo: "string"
+                logo: "string",
+                subTitle: "string"
             },
             handler(ctx) {
                 return this.DB_Menu.insert(ctx, {
                     name: ctx.params.name,
-                    logo: ctx.params.logo
+                    logo: ctx.params.logo,
+                    subTitle: ctx.params.subTitle
                 })
                     .then(() => {
                         console.log("Menu Created: ", ctx.params.name);

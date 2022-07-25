@@ -641,8 +641,8 @@ class Database {
         return ctx.call(`${this.table}.rawQuery`, { query: query })
             .then((res) => Promise.resolve({
                 name: "Operation Successful",
-                message: `Delete Complete: ${res} element(s) deleted`,
-                data: res
+                message: `Raw Query Complete`,
+                data: res[0]
             }))
             .catch((err) => {
                 if (err.name && err.message && !err.type && !err.code && !err.ctx)

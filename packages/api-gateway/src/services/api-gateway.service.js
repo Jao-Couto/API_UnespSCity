@@ -5,9 +5,14 @@ module.exports = {
     version: 1,
     mixins: [ApiService],
     settings: {
+        cors: {
+            methods: ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"],
+            origin: "*",
+        },
         routes: [
             {
                 path: "/api",
+                whitelist: ["**"],
                 aliases: {
                     "POST /catalogo": "v1.catalogo-service.create",
                     "GET /catalogo": "v1.catalogo-service.list",
@@ -26,13 +31,19 @@ module.exports = {
                     "GET /menucidade": "menucidade-service.getMenuCidade",
 
                     "POST /submenu": "submenu-service.create",
-                    "GET /submenu": "submenu-service.getAll",
+                    "GET /submenu": "submenu-service.getSubMenu",
 
                     "POST /praca": "praca-service.create",
                     "GET /praca": "praca-service.getAll",
-                }
+                },
+                cors: {
+                    origin: ["http://localhost:3000", "https://localhost:4000"],
+                    methods: ["GET", "OPTIONS", "POST"],
+                    credentials: true
+                },
             }
         ]
     }
+
 
 }

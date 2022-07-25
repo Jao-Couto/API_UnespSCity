@@ -25,6 +25,11 @@ module.exports = {
                 key: 'id'
             }
         },
+
+        logo: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
     },
     options: {
         timestamps: false

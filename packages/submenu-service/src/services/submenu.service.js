@@ -18,12 +18,14 @@ module.exports = {
         create: {
             params: {
                 name: "string",
-                menuId: "number"
+                menuId: "number",
+                logo: "string"
             },
             handler(ctx) {
                 return this.DB_Submenu.insert(ctx, {
                     name: ctx.params.name,
-                    menuId: ctx.params.menuId
+                    menuId: ctx.params.menuId,
+                    logo: ctx.params.logo
                 })
                     .then(() => {
                         console.log("SubMenu Created: ", ctx.params.name);
@@ -50,9 +52,9 @@ module.exports = {
             }
         },
 
-        getMenu: {
+        getSubMenu: {
             params: {
-                menuId: "number"
+                menuId: "string"
             },
             handler(ctx) {
                 return this.DB_Submenu.find(ctx, { query: { menuId: ctx.params.menuId } })

@@ -32,7 +32,6 @@ const serviceActions = {
         },
 
         rawQuery(ctx) {
-            console.log(this.adapter);
             return this.adapter.db.query(ctx.params.query);
         },
 

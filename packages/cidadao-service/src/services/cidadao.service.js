@@ -66,18 +66,42 @@ module.exports = {
                 password: "string",
             },
             handler(ctx) {
-                return this.generateHash(ctx.params.password)
-                    .then((res) => this.DB_Cidadaos.find(ctx, {
+                return this.DB_Cidadaos.findOne(ctx, {
+                    query: {
                         email: ctx.params.email,
-                        password: res,
-                    }))
-                    .then(() => {
-                        console.log("User Account loged: ", ctx.params.email);
-                        return "ok"
+                    }
+                })
+                    .then((res) => {
+                        const verifyPass = passwordHash.verify(ctx.params.password, res.data.password)
+                        console.log(res.data.password, verifyPass);
+                        if (verifyPass) {
+                            const retorno = {
+                                status: 200,
+                                user: {
+                                    name: res.data.name,
+                                    email: res.data.email,
+                                    token: "asdmkwe2ek2nkr32",
+                                    mobilePhone: res.data.mobilePhone,
+                                    cityId: res.data.cityId
+                                }
+                            }
+                            console.log("User Account loged: ", ctx.params.email);
+                            return retorno
+                        }
+                        return {
+                            status: 200,
+                            user: {
+                            }
+                        }
                     })
                     .catch((err) => {
                         console.log(err);
-                        return "error"
+                        return {
+                            status: 400,
+                            user: {
+                            },
+                            error: err
+                        }
                     });
             }
         },

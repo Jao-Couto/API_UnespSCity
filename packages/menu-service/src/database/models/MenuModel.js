@@ -21,6 +21,11 @@ module.exports = {
             type: Sequelize.STRING,
             allowNull: false
         },
+
+        subTitle: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
     },
     options: {
         timestamps: false

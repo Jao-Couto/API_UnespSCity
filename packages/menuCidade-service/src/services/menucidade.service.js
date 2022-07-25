@@ -64,8 +64,8 @@ module.exports = {
                 cityId: "string"
             },
             handler(ctx) {
-                return this.DB_MenuCidade.rawQuery(ctx, "Select menus.id as menuId, menus.name as menuName, submenus.id as subId, submenus.name as subName from menucidades INNER JOIN menus on menus.id = menucidades.menuId INNER JOIN submenus on submenus.menuId = menus.id WHERE menucidades.cityId = " + ctx.params.cityId)
-                    .then((res) => { console.log("Search Complete", res.data); return res.data })
+                return this.DB_MenuCidade.rawQuery(ctx, "Select menus.* from menucidades INNER JOIN menus on menus.id = menucidades.menuId WHERE menucidades.cityId = " + ctx.params.cityId + " ORDER BY menus.id")
+                    .then((res) => { console.log(res); return res.data })
                     .catch((err) => {
                         console.log("error: " + err);
                         return []
