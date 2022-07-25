@@ -6,7 +6,7 @@ const passwordHash = require('password-hash');
 // Filters applied when searching for entities
 // Elements correspond to the columns of the table
 const Filters_Cidadadao = {
-    full: ["id", "name", "logo"],
+    full: ["id", "name", "logo", "subTitle"],
     restricted: ["name"],
 };
 

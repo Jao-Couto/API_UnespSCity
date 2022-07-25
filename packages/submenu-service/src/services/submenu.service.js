@@ -6,7 +6,7 @@ const passwordHash = require('password-hash');
 // Filters applied when searching for entities
 // Elements correspond to the columns of the table
 const Filters_Submenu = {
-    full: ["id", "name", "menuId"],
+    full: ["id", "name", "menuId", "logo", "type"],
     restricted: ["name"],
 };
 
@@ -19,13 +19,16 @@ module.exports = {
             params: {
                 name: "string",
                 menuId: "number",
-                logo: "string"
+                logo: "string",
+                type: "string"
             },
             handler(ctx) {
+                console.log(ctx.params);
                 return this.DB_Submenu.insert(ctx, {
                     name: ctx.params.name,
                     menuId: ctx.params.menuId,
-                    logo: ctx.params.logo
+                    logo: ctx.params.logo,
+                    type: ctx.params.type
                 })
                     .then(() => {
                         console.log("SubMenu Created: ", ctx.params.name);
