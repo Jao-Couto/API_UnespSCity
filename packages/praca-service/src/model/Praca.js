@@ -4,11 +4,13 @@ const schema = mongoose.Schema({
     name: String,
     street: String,
     number: Number,
-    city: Number,
+    cityId: Number,
     latitude: String,
     longitude: String,
     description: String,
-    data: { type: Date, default: Date.now },
+    date: { type: Date, default: Date.now },
+    images: [{ data: Buffer, contentType: String }],
+    isResolved: Boolean
 })
 
 module.exports = mongoose.model("Praca", schema)

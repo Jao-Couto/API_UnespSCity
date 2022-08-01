@@ -2,30 +2,32 @@ const Praca = require("../model/Praca")
 
 module.exports = {
     name: "praca-service",
-    version: 1,
     actions: {
         create: {
             params: {
                 name: "string",
                 street: "string",
                 number: "number",
-                city: "number",
+                cityId: "number",
                 latitude: "string",
                 longitude: "string",
                 description: "string",
+
             },
             async handler(ctx) {
 
                 if (ctx.params) {
-                    if (ctx.params.name && ctx.params.street && ctx.params.number && ctx.params.city && ctx.params.latitude && ctx.params.longitude && ctx.params.description) {
+                    if (ctx.params.name && ctx.params.street && ctx.params.number && ctx.params.cityId && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
                         return Praca.create({
                             name: ctx.params.name,
                             street: ctx.params.street,
                             number: ctx.params.number,
-                            city: ctx.params.city,
+                            cityId: ctx.params.cityId,
                             latitude: ctx.params.latitude,
                             longitude: ctx.params.longitude,
                             description: ctx.params.description,
+                            images: ctx.params.images,
+                            isResolved: false
                         })
                     }
                 }
