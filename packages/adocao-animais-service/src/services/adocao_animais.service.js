@@ -7,10 +7,10 @@ module.exports = {
     actions: {
         create: {
             params: {
+                userId: "number",
                 cityId: "number",
                 owner: "string",
                 description: "string",
-                userId: "number",
             },
             async handler(ctx) {
                 const _id = mongoose.Types.ObjectId();
@@ -26,7 +26,6 @@ module.exports = {
                             description: ctx.params.description,
                             images: ctx.params.images,
                             date: today,
-                            userId: ctx.params.userId,
                             isResolved: false
                         })
                     }

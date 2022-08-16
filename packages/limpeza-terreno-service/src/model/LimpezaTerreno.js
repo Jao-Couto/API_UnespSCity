@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    lastTimeSeen: String,
     userId: Number,
     cityId: Number,
     street: String,
@@ -16,4 +15,4 @@ const schema = mongoose.Schema({
     isResolved: Boolean
 })
 
-module.exports = mongoose.model("Animais_Perdidos", schema)
+module.exports = mongoose.model("Limpeza_Terreno", schema)

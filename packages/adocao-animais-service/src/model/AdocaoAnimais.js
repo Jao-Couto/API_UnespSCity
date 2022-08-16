@@ -8,7 +8,6 @@ const schema = mongoose.Schema({
     description: String,
     images: [String],
     date: Date,
-    userId: Number,
     isResolved: Boolean
 })
 
