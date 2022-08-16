@@ -42,16 +42,6 @@ module.exports = {
                     "PUT /animais_sinantropicos/update_resolved/:id": "v1.animais-sinantropicos-service.updateResolved",
                     "DELETE /animais_sinantropicos/:id": "v1.animais-sinantropicos-service.delete",
 
-                    "POST /catalogo": "v1.catalogo-service.create",
-                    "GET /catalogo": "v1.catalogo-service.list",
-
-                    "POST /cidade": "cidade-service.create",
-                    "GET /cidade": "cidade-service.getAll",
-
-                    "POST /cidadao": "cidadao-service.create",
-                    "GET /cidadao": "cidadao-service.getAll",
-                    "POST /cidadao/login": "cidadao-service.login",
-
                     "GET /foco_escorpiao": "v1.foco-escorpiao-service.getAll",
                     "GET /foco_escorpiao/:id": "v1.foco-escorpiao-service.getById",
                     "POST /foco_escorpiao": "v1.foco-escorpiao-service.create",
@@ -100,15 +90,6 @@ module.exports = {
                     "PUT /maus_tratos_animais/update_resolved/:id": "v1.maus-tratos-animais-service.updateResolved",
                     "DELETE /maus_tratos_animais/:id": "v1.maus-tratos-animais-service.delete",
 
-                    "POST /menu": "menu-service.create",
-                    "GET /menu": "menu-service.getAll",
-
-                    "POST /menucidade": "menucidade-service.create",
-                    "GET /menucidade": "menucidade-service.getMenuCidade",
-
-                    "POST /praca": "praca-service.create",
-                    "GET /praca": "praca-service.getAll",
-
                     "GET /radar_dengue": "v1.radar-dengue-service.getAll",
                     "GET /radar_dengue/:id": "v1.radar-dengue-service.getById",
                     "POST /radar_dengue": "v1.radar-dengue-service.create",
@@ -116,14 +97,33 @@ module.exports = {
                     "PUT /radar_dengue/update_resolved/:id": "v1.radar-dengue-service.updateResolved",
                     "DELETE /radar_dengue/:id": "v1.radar-dengue-service.delete",
 
-                    "POST /submenu": "submenu-service.create",
-                    "GET /submenu": "submenu-service.getSubMenu",
-
                     "GET /tumulos": "v1.tumulos-service.getAll",
                     "GET /tumulos/:id": "v1.tumulos-service.getById",
                     "POST /tumulos": "v1.tumulos-service.create",
                     "PUT /tumulos/:id": "v1.tumulos-service.update",
                     "DELETE /tumulos/:id": "v1.tumulos-service.delete",
+
+                    "POST /catalogo": "v1.catalogo-service.create",
+                    "GET /catalogo": "v1.catalogo-service.list",
+
+                    "POST /cidade": "cidade-service.create",
+                    "GET /cidade": "cidade-service.getAll",
+
+                    "POST /cidadao": "cidadao-service.create",
+                    "GET /cidadao": "cidadao-service.getAll",
+                    "POST /cidadao/login": "cidadao-service.login",
+
+                    "POST /menu": "menu-service.create",
+                    "GET /menu": "menu-service.getAll",
+
+                    "POST /menucidade": "menucidade-service.create",
+                    "GET /menucidade": "menucidade-service.getMenuCidade",
+
+                    "POST /submenu": "submenu-service.create",
+                    "GET /submenu": "submenu-service.getSubMenu",
+
+                    "POST /praca": "praca-service.create",
+                    "GET /praca": "praca-service.getAll",
                 },
                 cors: {
                     origin: ["http://localhost:3000", "https://localhost:4000"],
