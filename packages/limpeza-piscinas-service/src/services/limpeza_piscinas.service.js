@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const Animais_Abandonados = require("../model/AnimaisAbandonados");
+const Limpeza_Piscinas = require("../model/LimpezaPiscinas");
 
 module.exports = {
-    name: "animais-abandonados-service",
+    name: "limpeza-piscinas-service",
     version: 1,
     actions: {
         create: {
@@ -15,14 +15,15 @@ module.exports = {
                 latitude: "number",
                 longitude: "number",
                 description: "string",
+                userId: "number",
             },
             async handler(ctx) {
                 const _id = mongoose.Types.ObjectId();
                 const timeElapsed = Date.now();
                 const today = new Date(timeElapsed);
                 if (ctx.params) {
-                    if (ctx.params.street && ctx.params.number && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
-                        return Animais_Abandonados.create({
+                    if (ctx.params.street && ctx.params.number && ctx.params.referencePoint && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
+                        return Limpeza_Piscinas.create({
                             _id,
                             userId: ctx.params.userId,
                             cityId: ctx.params.cityId,
@@ -45,14 +46,14 @@ module.exports = {
 
         getAll: {
             async handler(ctx) {
-                return await Animais_Abandonados.find()
+                return await Limpeza_Piscinas.find()
             }
         },
 
         getById: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Animais_Abandonados.find({ _id: ctx.params.id })
+                    return await Limpeza_Piscinas.find({ _id: ctx.params.id })
                 }
                 return false
             }
@@ -69,14 +70,14 @@ module.exports = {
             },
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Animais_Abandonados.updateOne({ _id: ctx.params.id }, { $set: {
+                    return await Limpeza_Piscinas.updateOne({ _id: ctx.params.id }, { $set: {
                         street: ctx.params.street,
                         number: ctx.params.number,
                         referencePoint: ctx.params.referencePoint,
                         latitude: ctx.params.latitude,
                         longitude: ctx.params.longitude,
                         description: ctx.params.description,
-                        images: ctx.params.images, 
+                        images: ctx.params.images,
                     } });
                 }
                 return false
@@ -86,7 +87,7 @@ module.exports = {
         updateResolved: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Animais_Abandonados.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
+                    return await Limpeza_Piscinas.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
                 }
                 return false
             }
@@ -95,7 +96,7 @@ module.exports = {
         delete: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Animais_Abandonados.deleteOne({ _id: ctx.params.id })
+                    return await Limpeza_Piscinas.deleteOne({ _id: ctx.params.id })
                 }
                 return false
             }
