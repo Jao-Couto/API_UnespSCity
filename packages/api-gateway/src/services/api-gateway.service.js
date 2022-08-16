@@ -33,7 +33,7 @@ module.exports = {
                     "POST /submenu": "submenu-service.create",
                     "GET /submenu": "submenu-service.getSubMenu",
 
-                    "POST /praca": "praca-service.create",
+                    "POST /praca": "praca-service.uploadFile",
                     "GET /praca": "praca-service.getAll",
                 },
                 cors: {
