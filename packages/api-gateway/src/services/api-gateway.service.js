@@ -14,6 +14,55 @@ module.exports = {
                 path: "/api",
                 whitelist: ["**"],
                 aliases: {
+                    // Assistencia Social 
+                    "GET /useful_contacts": "v1.useful-contacts-service.getByCity",
+                    "POST /useful_contacts": "v1.useful-contacts-service.create",
+                    "PUT /useful_contacts/:id": "v1.useful-contacts-service.update",
+                    "DELETE /useful_contacts/:id": "v1.useful-contacts-service.delete",
+
+                    // Conservação Urbana 
+                    "GET /facilities_inspection": "v1.facilities-inspection-service.getAll",
+                    "GET /facilities_inspection/:id": "v1.facilities-inspection-service.getById",
+                    "POST /facilities_inspection": "v1.facilities-inspection-service.create",
+                    "PUT /facilities_inspection/:id": "v1.facilities-inspection-service.update",
+                    "PUT /facilities_inspection/update_resolved/:id": "v1.facilities-inspection-service.updateResolved",
+                    "DELETE /facilities_inspection/:id": "v1.facilities-inspection-service.delete",
+
+                    "GET /monument": "v1.fountains-monuments-service.getAll",
+                    "GET /monument/:id": "v1.fountains-monuments-service.getById",
+                    "POST /monument": "v1.fountains-monuments-service.create",
+                    "PUT /monument/:id": "v1.fountains-monuments-service.update",
+                    "PUT /monument/update_resolved/:id": "v1.fountains-monuments-service.updateResolved",
+                    "DELETE /monument/:id": "v1.fountains-monuments-service.delete",
+
+                    "GET /paviment": "v1.paviment-service.getAll",
+                    "GET /paviment/:id": "v1.paviment-service.getById",
+                    "POST /create_paviment": "v1.paviment-service.create",
+                    "PUT /paviment/:id": "v1.paviment-service.update",
+                    "PUT /paviment/update_resolved/:id": "v1.paviment-service.updateResolved",
+                    "DELETE /del_paviment/:id": "v1.paviment-service.delete",
+
+                    "GET /public_roads": "v1.public-roads-service.getAll",
+                    "GET /public_roads/:id": "v1.public-roads-service.getById",
+                    "POST /public_roads": "v1.public-roads-service.create",
+                    "PUT /public_roads/:id": "v1.public-roads-service.update",
+                    "PUT /public_roads/update_resolved/:id": "v1.public-roads-service.updateResolved",
+                    "DELETE /public_roads/:id": "v1.public-roads-service.delete",
+
+                    "GET /get_all_street_lighting": "v1.street-lighting-service.getAll",
+                    "GET /street_lighting/:id": "v1.street-lighting-service.getById",
+                    "POST /create_street_lighting": "v1.street-lighting-service.create",
+                    "PUT /street_lighting/:id": "v1.street-lighting-service.update",
+                    "PUT /street_lighting/update_resolved/:id": "v1.street-lighting-service.updateResolved",
+                    "DELETE /del_street_lighting/:id": "v1.street-lighting-service.delete",
+
+                    // Meio Ambiente 
+                    "GET /public_area_adoption": "v1.public-area-adoption-service.getAll",
+                    "POST /public_area_adoption": "v1.public-area-adoption-service.create",
+                    "PUT /public_area_adoption/:id": "v1.public-area-adoption-service.update",
+                    "PUT /public_area_adoption/update_adopted/:id": "v1.public-area-adoption-service.updateResolved",
+                    "DELETE /public_area_adoption/:id": "v1.public-area-adoption-service.delete",
+                    
                     "GET /adocao_animais": "v1.adocao-animais-service.getAll",
                     "GET /adocao_animais/:id": "v1.adocao-animais-service.getById",
                     "POST /adocao_animais": "v1.adocao-animais-service.create",
@@ -111,6 +160,7 @@ module.exports = {
 
                     "POST /cidadao": "cidadao-service.create",
                     "GET /cidadao": "cidadao-service.getAll",
+                    "PUT /update_cidadao": "cidadao-service.updatePanicButton",
                     "POST /cidadao/login": "cidadao-service.login",
 
                     "POST /menu": "menu-service.create",
