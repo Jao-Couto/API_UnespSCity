@@ -30,7 +30,9 @@ module.exports = {
                         password: res,
                         email: ctx.params.email,
                         mobilePhone: ctx.params.mobilePhone,
-                        cityId: ctx.params.cityId
+                        cityId: ctx.params.cityId,
+                        panicButton: false,
+                        isAdmin: ctx.params.isAdmin,
                     }))
                     .then(() => {
                         console.log("User Account Created", ctx.params.name);
@@ -60,6 +62,15 @@ module.exports = {
             }
         },
 
+        updatePanicButton: {
+            async handler(ctx) {
+                if (ctx.params) {
+                    return await this.DB_Cidadaos.updateOne({ _id: ctx.params.id }, { $set: { panicButton: true } });
+                }
+                return false
+            }
+        },
+
         login: {
             params: {
                 email: "string",
@@ -82,7 +93,9 @@ module.exports = {
                                     email: res.data.email,
                                     token: "asdmkwe2ek2nkr32",
                                     mobilePhone: res.data.mobilePhone,
-                                    cityId: res.data.cityId
+                                    cityId: res.data.cityId,
+                                    panicButton: res.data.panicButton,
+                                    isAdmin: res.data.isAdmin
                                 }
                             }
                             console.log("User Account loged: ", ctx.params.email);
