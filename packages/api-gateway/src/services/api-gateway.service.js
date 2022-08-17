@@ -122,8 +122,11 @@ module.exports = {
                     "POST /submenu": "submenu-service.create",
                     "GET /submenu": "submenu-service.getSubMenu",
 
-                    "POST /praca": "praca-service.uploadFile",
+                    "POST /praca": "praca-service.create",
                     "GET /praca": "praca-service.getAll",
+
+                    "POST /image": "image-service.create",
+                    "GET /image": "image-service.getAll",
                 },
                 cors: {
                     origin: ["http://localhost:3000", "https://localhost:4000"],
