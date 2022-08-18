@@ -56,6 +56,17 @@ module.exports = {
                     "PUT /street_lighting/update_resolved/:id": "v1.street-lighting-service.updateResolved",
                     "DELETE /del_street_lighting/:id": "v1.street-lighting-service.delete",
 
+                    "POST /start_temperature": "v1.temperature-service.start",
+                    "POST /stop_temperature": "v1.temperature-service.stop",
+
+                    // Botão do Pânico
+                    "GET /get_all_panic_button": "v1.panic-button-service.getAll",
+                    "GET /panic_button": "v1.panic-button-service.getById",
+                    "POST /panic_button/:id": "v1.panic-button-service.create",
+                    "POST /call_panic_button": "v1.panic-button-service.callPanicButton",
+                    "PUT /panic_button/:id": "v1.panic-button-service.update",
+                    "DELETE /panic_button/:id": "v1.panic-button-service.delete",
+                    
                     // Meio Ambiente 
                     "GET /public_area_adoption": "v1.public-area-adoption-service.getAll",
                     "POST /public_area_adoption": "v1.public-area-adoption-service.create",
@@ -179,7 +190,7 @@ module.exports = {
                     "GET /image": "image-service.getAll",
                 },
                 cors: {
-                    origin: ["http://localhost:3000", "https://localhost:4000"],
+                    origin: ["http://localhost:3001", "https://localhost:4000"],
                     methods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"],
                     credentials: true
                 },
