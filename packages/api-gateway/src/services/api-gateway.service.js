@@ -190,7 +190,7 @@ module.exports = {
                     "GET /image": "image-service.getAll",
                 },
                 cors: {
-                    origin: ["http://localhost:3001", "https://localhost:4000"],
+                    origin: ["http://localhost:3000", "https://localhost:4000"],
                     methods: ["GET", "OPTIONS", "POST", "PUT", "DELETE"],
                     credentials: true
                 },
