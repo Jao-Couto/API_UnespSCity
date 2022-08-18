@@ -8,6 +8,7 @@
         "aws-sdk": "^2.1196.0",
         "moleculer": "^0.14.19",
         "moleculer-repl": "^0.7.0",
-        "mongoose": "^6.3.0"
+        "mongoose": "^6.3.0",
+        "uuid": "^8.3.2"
     }
 }

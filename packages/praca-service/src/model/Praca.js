@@ -1,15 +1,16 @@
 const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
-    name: String,
+    userId: Number,
     street: String,
-    number: Number,
+    streetNumber: Number,
+    referencePoint: String,
     cityId: Number,
     latitude: String,
     longitude: String,
     description: String,
     date: { type: Date, default: Date.now },
-    images: [{ data: Buffer, contentType: String }],
+    images: [String],
     isResolved: Boolean
 })
 

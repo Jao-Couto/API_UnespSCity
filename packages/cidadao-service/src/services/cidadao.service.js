@@ -22,7 +22,8 @@ module.exports = {
                 password: "string",
                 email: "string",
                 mobilePhone: "string",
-                cityId: "number"
+                cityId: "number",
+                panicButton: "boolean"
             },
             handler(ctx) {
                 return this.generateHash(ctx.params.password)
@@ -32,8 +33,8 @@ module.exports = {
                         email: ctx.params.email,
                         mobilePhone: ctx.params.mobilePhone,
                         cityId: ctx.params.cityId,
-                        panicButton: ctx.params.panicButton,
-                        isAdmin: ctx.params.isAdmin,
+                        panicButton: ctx.params.panicButton == true,
+                        isAdmin: ctx.params.isAdmin == true,
                     }))
                     .then(() => {
                         console.log("User Account Created", ctx.params.name);
@@ -84,10 +85,15 @@ module.exports = {
                     }
                 });
                 const verifyPass = verifyPassword.verify(ctx.params.password, user.data.password)
+
+
                 if (verifyPass) {
+
+                    user.data.token = user.data.password.substring(user.data.password.length - 20)
+                    delete user.data.password
                     return {
                         status: 200,
-                        data: user
+                        data: user.data
                     }
                 }
                 return {

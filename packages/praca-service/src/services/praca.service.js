@@ -6,9 +6,10 @@ module.exports = {
     actions: {
         create: {
             params: {
-                name: "string",
+                userId: "number",
                 street: "string",
-                number: "number",
+                streetNumber: "number",
+                referencePoint: "string",
                 cityId: "number",
                 latitude: "string",
                 longitude: "string",
@@ -16,21 +17,17 @@ module.exports = {
 
             },
             async handler(ctx) {
-                if (ctx.params) {
-                    if (ctx.params.name && ctx.params.street && ctx.params.number && ctx.params.cityId && ctx.params.latitude && ctx.params.longitude && ctx.params.description) {
-                        return Praca.create({
-                            name: ctx.params.name,
-                            street: ctx.params.street,
-                            number: ctx.params.number,
-                            cityId: ctx.params.cityId,
-                            latitude: ctx.params.latitude,
-                            longitude: ctx.params.longitude,
-                            description: ctx.params.description,
-                            isResolved: false
-                        })
-                    }
-                }
-                return false
+                return Praca.create({
+                    userId: ctx.params.userId,
+                    street: ctx.params.street,
+                    streetNumber: ctx.params.streetNumber,
+                    referencePoint: ctx.params.referencePoint,
+                    cityId: ctx.params.cityId,
+                    latitude: ctx.params.latitude,
+                    longitude: ctx.params.longitude,
+                    description: ctx.params.description,
+                    isResolved: false
+                })
             }
         },
 

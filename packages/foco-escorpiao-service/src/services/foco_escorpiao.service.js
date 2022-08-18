@@ -10,10 +10,10 @@ module.exports = {
                 userId: "number",
                 cityId: "number",
                 street: "string",
-                number: "number",
+                streetNumber: "number",
                 referencePoint: "string",
-                latitude: "number",
-                longitude: "number",
+                latitude: "string",
+                longitude: "string",
                 description: "string",
             },
             async handler(ctx) {
@@ -69,15 +69,17 @@ module.exports = {
             },
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Foco_Escorpiao.updateOne({ _id: ctx.params.id }, { $set: {
-                        street: ctx.params.street,
-                        number: ctx.params.number,
-                        referencePoint: ctx.params.referencePoint,
-                        latitude: ctx.params.latitude,
-                        longitude: ctx.params.longitude,
-                        description: ctx.params.description,
-                        images: ctx.params.images,
-                    } });
+                    return await Foco_Escorpiao.updateOne({ _id: ctx.params.id }, {
+                        $set: {
+                            street: ctx.params.street,
+                            number: ctx.params.number,
+                            referencePoint: ctx.params.referencePoint,
+                            latitude: ctx.params.latitude,
+                            longitude: ctx.params.longitude,
+                            description: ctx.params.description,
+                            images: ctx.params.images,
+                        }
+                    });
                 }
                 return false
             }

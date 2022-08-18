@@ -1,12 +1,12 @@
 const Images = require("../model/Images")
 const aws = require("aws-sdk");
 const { accessKeyId, secretAccessKey } = require("../../../../config");
+const uuid = require("uuid")
 
 aws.config.update({
     accessKeyId: accessKeyId,
     secretAccessKey: secretAccessKey,
-    region: "sa-east-1",
-    ACL: "public-read"
+    region: "sa-east-1"
 })
 
 const s3 = new aws.S3({ params: { Bucket: 'unesp-s-city' } });
@@ -14,26 +14,11 @@ const s3 = new aws.S3({ params: { Bucket: 'unesp-s-city' } });
 
 module.exports = {
     name: "image-service",
-    aliases: {
-        "POST /api/image"(req, response) {
-            const ref = this;
-            const file = req.images;
-            return ref.broker.call("praca-service.uploadFile", { file })
-                .then(res => {
-                    ref.logger.info("File uploaded successfully!", res);
-                    response.end(res);
-                })
-                .catch(err => {
-                    ref.logger.error("File upload error!", err);
-                    ref.sendError(req, res, err);
-                });
-        },
-    },
     actions: {
         create: {
             params: {
                 idObj: "string",
-                images: ["string"],
+                images: "string",
             },
             async handler(ctx) {
                 if (ctx.params) {
@@ -59,12 +44,14 @@ module.exports = {
     methods: {
         async uploadToS3(file) {
             const buffer = new Buffer.from(file, "base64");
-            const name = "teste3123"
+            console.log(buffer);
+            const name = uuid.v4() + "_foto.jpeg"
             const params = {
                 Key: name,
                 Body: buffer,
                 ContentEncoding: 'base64',
-                ContentType: 'image/jpeg'
+                ContentType: 'image/jpeg',
+                ACL: 'public-read'
             };
             return await new Promise(function (resolve, reject) {
                 s3.putObject(params, function (err, data) {
@@ -77,17 +64,6 @@ module.exports = {
 
                     }
                 });
-                // s3.createBucket(function () {
-                //     s3.upload(params, function (err, data) {
-                //         console.log("ola");
-                //         if (err) {
-                //             console.log('error in callback');
-                //             console.log(err);
-                //         }
-                //         console.log(JSON.stringify(data));
-                //         resolve(JSON.stringify(data));
-                //     });
-                // })
             });
         },
     }
