@@ -44,15 +44,6 @@ module.exports = {
             }
         },
 
-        getById: {
-            async handler(ctx) {
-                if (ctx.params && ctx.params.id) {
-                    return await GraficosAcesso.find({ _id: ctx.params.id })
-                }
-                return false
-            }
-        },
-
         update: {
             params: {
                 ontem: "number",
@@ -66,11 +57,13 @@ module.exports = {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
                     return await GraficosAcesso.updateOne({ _id: ctx.params.id }, { $set: {
-                        dateOfDeath: ctx.params.dateOfDeath,
-                        graveyardName: ctx.params.graveyardName,
-                        graveNumber: ctx.params.graveNumber,
-                        QRCode: ctx.params.QRCode,
-                        QRimage: ctx.params.QRimage,
+                        ontem: ctx.params.ontem,
+                        anteontem: ctx.params.anteontem,
+                        _threedays: ctx.params._threedays,
+                        _fourdays: ctx.params._fourdays,
+                        _fivedays: ctx.params._fivedays,
+                        _sixdays: ctx.params._sixdays,
+                        _sevendays: ctx.params._sevendays,
                     } });
                 }
                 return false

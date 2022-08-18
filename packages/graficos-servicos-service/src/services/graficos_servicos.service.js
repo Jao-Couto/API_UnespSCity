@@ -8,16 +8,18 @@ module.exports = {
         create: {
             params: {
                 cityId: "number",
+                type: "string",
                 totalSolicitados: "number",
                 totalResolvidos: "number"
             },
             async handler(ctx) {
                 const _id = mongoose.Types.ObjectId();
                 if (ctx.params) {
-                    if (ctx.params.totalSolicitados && ctx.params.totalResolvidos) {
+                    if (ctx.params.type && ctx.params.totalSolicitados && ctx.params.totalResolvidos) {
                         return GraficosServicos.create({
                             _id,
                             cityId: ctx.params.cityId,
+                            type: ctx.params.type,
                             totalSolicitados: ctx.params.totalSolicitados,
                             totalResolvidos: ctx.params.totalResolvidos,
                         })
@@ -45,17 +47,16 @@ module.exports = {
 
         update: {
             params: {
+                type: "string",
                 totalSolicitados: "number",
                 totalResolvidos: "number",
             },
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
                     return await GraficosServicos.updateOne({ _id: ctx.params.id }, { $set: {
-                        dateOfDeath: ctx.params.dateOfDeath,
-                        graveyardName: ctx.params.graveyardName,
-                        graveNumber: ctx.params.graveNumber,
-                        QRCode: ctx.params.QRCode,
-                        QRimage: ctx.params.QRimage,
+                        type: ctx.params.type,
+                        totalSolicitados: ctx.params.totalSolicitados,
+                        totalResolvidos: ctx.params.totalResolvidos,
                     } });
                 }
                 return false
