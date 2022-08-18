@@ -37,7 +37,6 @@ module.exports = {
             }
         },
 
-
         getAll: {
             async handler(ctx) {
                 return await GraficosAcesso.find()
