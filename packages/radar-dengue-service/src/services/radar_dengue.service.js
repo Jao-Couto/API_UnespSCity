@@ -21,13 +21,13 @@ module.exports = {
                 const timeElapsed = Date.now();
                 const today = new Date(timeElapsed);
                 if (ctx.params) {
-                    if (ctx.params.street && ctx.params.number && ctx.params.referencePoint && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
+                    if (ctx.params.street && ctx.params.streetNumber && ctx.params.referencePoint && ctx.params.latitude && ctx.params.longitude && ctx.params.description) {
                         return Radar_Dengue.create({
                             _id,
                             userId: ctx.params.userId,
                             cityId: ctx.params.cityId,
                             street: ctx.params.street,
-                            number: ctx.params.number,
+                            streetNumber: ctx.params.streetNumber,
                             referencePoint: ctx.params.referencePoint,
                             latitude: ctx.params.latitude,
                             longitude: ctx.params.longitude,
