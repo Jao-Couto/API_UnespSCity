@@ -26,6 +26,7 @@ module.exports = {
                     latitude: ctx.params.latitude,
                     longitude: ctx.params.longitude,
                     description: ctx.params.description,
+                    images: [ctx.params.images],
                     isResolved: false
                 })
             }

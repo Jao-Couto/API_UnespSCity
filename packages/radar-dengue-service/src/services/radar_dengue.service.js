@@ -12,8 +12,8 @@ module.exports = {
                 street: "string",
                 streetNumber: "number",
                 referencePoint: "string",
-                latitude: "string",
-                longitude: "string",
+                latitude: "number",
+                longitude: "number",
                 description: "string",
             },
             async handler(ctx) {
