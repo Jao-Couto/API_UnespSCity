@@ -543,7 +543,7 @@
   optionalDependencies:
     "saslprep" "^1.0.3"
 
-"mongoose@^6.4.6":
+"mongoose@^6.5.2":
   "integrity" "sha512-3CFDrSLtK2qjM1pZeZpLTUyqPRkc11Iuh74ZrwS4IwEJ3K2PqGnmyPLw7ex4Kzu37ujIMp3MAuiBlUjfrcb6hw=="
   "resolved" "https://registry.npmjs.org/mongoose/-/mongoose-6.5.2.tgz"
   "version" "6.5.2"

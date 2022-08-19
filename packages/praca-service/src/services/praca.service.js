@@ -11,8 +11,8 @@ module.exports = {
                 streetNumber: "number",
                 referencePoint: "string",
                 cityId: "number",
-                latitude: "string",
-                longitude: "string",
+                latitude: "number",
+                longitude: "number",
                 description: "string",
 
             },
@@ -37,6 +37,12 @@ module.exports = {
             }
         },
 
+        getAllMarkers: {
+            async handler(ctx) {
+                return await Praca.find({ isResolved: false }, "latitude longitude")
+            }
+        },
+
         exists: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
@@ -45,5 +51,42 @@ module.exports = {
                 return false
             }
         },
+
+        update: {
+            async handler(ctx) {
+                if (ctx.params && ctx.params.id) {
+                    return await Praca.updateOne({ _id: ctx.params.id }, {
+                        $set: {
+                            idCity: ctx.params.idCity,
+                            name: ctx.params.name,
+                            street: ctx.params.street,
+                            streetNumber: ctx.params.streetNumber,
+                            latitude: ctx.params.latitude,
+                            longitude: ctx.params.longitude,
+                            description: ctx.params.description,
+                            images: ctx.params.images
+                        }
+                    });
+                }
+                return false
+            }
+        },
+        updateResolved: {
+            async handler(ctx) {
+                if (ctx.params && ctx.params.id) {
+                    return await Praca.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
+                }
+                return false
+            }
+        },
+
+        delete: {
+            async handler(ctx) {
+                if (ctx.params && ctx.params.id) {
+                    return await Praca.deleteOne({ _id: ctx.params.id })
+                }
+                return false
+            }
+        }
     },
 }

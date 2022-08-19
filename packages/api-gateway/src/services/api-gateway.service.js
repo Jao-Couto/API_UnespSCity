@@ -66,14 +66,14 @@ module.exports = {
                     "POST /call_panic_button": "v1.panic-button-service.callPanicButton",
                     "PUT /panic_button/:id": "v1.panic-button-service.update",
                     "DELETE /panic_button/:id": "v1.panic-button-service.delete",
-                    
+
                     // Meio Ambiente 
                     "GET /public_area_adoption": "v1.public-area-adoption-service.getAll",
                     "POST /public_area_adoption": "v1.public-area-adoption-service.create",
                     "PUT /public_area_adoption/:id": "v1.public-area-adoption-service.update",
                     "PUT /public_area_adoption/update_adopted/:id": "v1.public-area-adoption-service.updateResolved",
                     "DELETE /public_area_adoption/:id": "v1.public-area-adoption-service.delete",
-                    
+
                     "GET /adocao_animais": "v1.adocao-animais-service.getAll",
                     "GET /adocao_animais/:id": "v1.adocao-animais-service.getById",
                     "POST /adocao_animais": "v1.adocao-animais-service.create",
@@ -185,6 +185,10 @@ module.exports = {
 
                     "POST /praca": "praca-service.create",
                     "GET /praca": "praca-service.getAll",
+                    "GET /praca/markers": "praca-service.getAllMarkers",
+                    "PUT /praca/:id": "praca-service.update",
+                    "PUT /praca/update_resolved/:id": "praca-service.updateResolved",
+                    "DELETE /praca/:id": "praca-service.delete",
 
                     "POST /image": "image-service.create",
                     "GET /image": "image-service.getAll",
