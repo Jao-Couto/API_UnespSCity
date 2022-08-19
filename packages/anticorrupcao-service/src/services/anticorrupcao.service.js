@@ -1,8 +1,8 @@
-const Praca = require("../model/Praca")
+const Anticorrupcao = require("../model/Anticorrupcao")
 
 
 module.exports = {
-    name: "praca-service",
+    name: "anticorrupcao-service",
     actions: {
         create: {
             params: {
@@ -17,7 +17,7 @@ module.exports = {
 
             },
             async handler(ctx) {
-                return Praca.create({
+                return Anticorrupcao.create({
                     userId: ctx.params.userId,
                     street: ctx.params.street,
                     streetNumber: ctx.params.streetNumber,
@@ -34,20 +34,20 @@ module.exports = {
 
         getAll: {
             async handler(ctx) {
-                return await Praca.find()
+                return await Anticorrupcao.find()
             }
         },
 
         getAllMarkers: {
             async handler(ctx) {
-                return await Praca.find({ isResolved: false }, "latitude longitude date")
+                return await Anticorrupcao.find({ isResolved: false }, "latitude longitude date")
             }
         },
 
         exists: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.exists({ _id: ctx.params.id })
+                    return await Anticorrupcao.exists({ _id: ctx.params.id })
                 }
                 return false
             }
@@ -56,7 +56,7 @@ module.exports = {
         update: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.updateOne({ _id: ctx.params.id }, {
+                    return await Anticorrupcao.updateOne({ _id: ctx.params.id }, {
                         $set: {
                             idCity: ctx.params.idCity,
                             name: ctx.params.name,
@@ -75,7 +75,7 @@ module.exports = {
         updateResolved: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
+                    return await Anticorrupcao.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
                 }
                 return false
             }
@@ -84,7 +84,7 @@ module.exports = {
         delete: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.deleteOne({ _id: ctx.params.id })
+                    return await Anticorrupcao.deleteOne({ _id: ctx.params.id })
                 }
                 return false
             }

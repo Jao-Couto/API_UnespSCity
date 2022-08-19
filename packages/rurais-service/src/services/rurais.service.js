@@ -1,8 +1,8 @@
-const Praca = require("../model/Praca")
+const Rurais = require("../model/Rurais")
 
 
 module.exports = {
-    name: "praca-service",
+    name: "rurais-service",
     actions: {
         create: {
             params: {
@@ -17,7 +17,7 @@ module.exports = {
 
             },
             async handler(ctx) {
-                return Praca.create({
+                return Rurais.create({
                     userId: ctx.params.userId,
                     street: ctx.params.street,
                     streetNumber: ctx.params.streetNumber,
@@ -34,20 +34,20 @@ module.exports = {
 
         getAll: {
             async handler(ctx) {
-                return await Praca.find()
+                return await Rurais.find()
             }
         },
 
         getAllMarkers: {
             async handler(ctx) {
-                return await Praca.find({ isResolved: false }, "latitude longitude date")
+                return await Rurais.find({ isResolved: false }, "latitude longitude date")
             }
         },
 
         exists: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.exists({ _id: ctx.params.id })
+                    return await Rurais.exists({ _id: ctx.params.id })
                 }
                 return false
             }
@@ -56,7 +56,7 @@ module.exports = {
         update: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.updateOne({ _id: ctx.params.id }, {
+                    return await Rurais.updateOne({ _id: ctx.params.id }, {
                         $set: {
                             idCity: ctx.params.idCity,
                             name: ctx.params.name,
@@ -75,7 +75,7 @@ module.exports = {
         updateResolved: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
+                    return await Rurais.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
                 }
                 return false
             }
@@ -84,7 +84,7 @@ module.exports = {
         delete: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Praca.deleteOne({ _id: ctx.params.id })
+                    return await Rurais.deleteOne({ _id: ctx.params.id })
                 }
                 return false
             }
