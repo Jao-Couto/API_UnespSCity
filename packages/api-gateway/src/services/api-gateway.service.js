@@ -150,6 +150,20 @@ module.exports = {
                     "PUT /maus_tratos_animais/update_resolved/:id": "v1.maus-tratos-animais-service.updateResolved",
                     "DELETE /maus_tratos_animais/:id": "v1.maus-tratos-animais-service.delete",
 
+                    "GET /remocao_animais_mortos": "v1.removal-deadanimals.getAll",
+                    "GET /remocao_animais_mortos/:id": "v1.removal-deadanimals.getById",
+                    "POST /remocao_animais_mortos": "v1.removal-deadanimals.create",
+                    "PUT /remocao_animais_mortos/:id": "v1.removal-deadanimals.update",
+                    "PUT /remocao_animais_mortos/update_resolved/:id": "v1.removal-deadanimals.updateResolved",
+                    "DELETE /remocao_animais_mortos/:id": "v1.removal-deadanimals.delete",
+
+                    "GET /remove-trash": "v1.remove-trash.getAll",
+                    "GET /remove-trash/:id": "v1.remove-trash.getById",
+                    "POST /remove-trash": "v1.remove-trash.create",
+                    "PUT /remove-trash/:id": "v1.remove-trash.update",
+                    "PUT /remove-trash/update_resolved/:id": "v1.remove-trash.updateResolved",
+                    "DELETE /remove-trash/:id": "v1.remove-trash.delete",
+
                     "GET /radar_dengue": "v1.radar-dengue-service.getAll",
                     "GET /radar_dengue/:id": "v1.radar-dengue-service.getById",
                     "POST /radar_dengue": "v1.radar-dengue-service.create",
