@@ -179,6 +179,8 @@ module.exports = {
 
                     "POST /menucidade": "menucidade-service.create",
                     "GET /menucidade": "menucidade-service.getMenuCidade",
+                    "GET /menucidade/submenu/:cityId": "menucidade-service.getSubMenu",
+
 
                     "POST /submenu": "submenu-service.create",
                     "GET /submenu": "submenu-service.getSubMenu",

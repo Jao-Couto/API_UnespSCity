@@ -73,6 +73,20 @@ module.exports = {
             }
         },
 
+        getSubMenu: {
+            params: {
+                cityId: "string"
+            },
+            handler(ctx) {
+                return this.DB_MenuCidade.rawQuery(ctx, "Select submenus.id, submenus.name from menucidades INNER JOIN submenus on submenus.menuID = menucidades.menuID WHERE menucidades.cityId = " + ctx.params.cityId + " ORDER BY submenus.name")
+                    .then((res) => { console.log(res); return res.data })
+                    .catch((err) => {
+                        console.log("error: " + err);
+                        return []
+                    });
+            }
+        },
+
     },
     methods: {
     },
