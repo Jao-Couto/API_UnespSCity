@@ -33,8 +33,8 @@ module.exports = {
                         email: ctx.params.email,
                         mobilePhone: ctx.params.mobilePhone,
                         cityId: ctx.params.cityId,
-                        panicButton: ctx.params.panicButton == true,
-                        isAdmin: ctx.params.isAdmin == true,
+                        panicButton: ctx.params.panicButton == ctx.params.panicButton,
+                        isAdmin: ctx.params.isAdmin == false,
                     }))
                     .then(() => {
                         console.log("User Account Created", ctx.params.name);
@@ -64,10 +64,37 @@ module.exports = {
             }
         },
 
-        updatePanicButton: {
+        updateOne: {
+            params: {
+                id: "string",
+                name: "string",
+                email: "string",
+                mobilePhone: "string",
+                cityId: "number",
+                panicButton: "boolean"
+            },
             async handler(ctx) {
                 if (ctx.params) {
-                    return await this.DB_Cidadaos.updateOne({ _id: ctx.params.id }, { $set: { panicButton: true } });
+                    return await this.DB_Cidadaos.updateById(ctx, ctx.params.id, {
+                        name: ctx.params.name,
+                        email: ctx.params.email,
+                        mobilePhone: ctx.params.mobilePhone,
+                        cityId: ctx.params.cityId,
+                        panicButton: ctx.params.panicButton == ctx.params.panicButton
+                    });
+                }
+                return false
+            }
+        },
+
+        updatePanicButton: {
+            params: {
+                id: "string",
+                panicButton: "boolean"
+            },
+            async handler(ctx) {
+                if (ctx.params) {
+                    return await this.DB_Cidadaos.updateById(ctx, ctx.params.id, { panicButton: ctx.params.panicButton });
                 }
                 return false
             }
