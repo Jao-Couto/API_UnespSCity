@@ -81,6 +81,20 @@ module.exports = {
                     "PUT /adocao_animais/update_resolved/:id": "v1.adocao-animais-service.updateResolved",
                     "DELETE /adocao_animais/:id": "v1.adocao-animais-service.delete",
 
+                    "GET /animaisSelvagens": "v1.wild-animals.getAll",
+                    "GET /animaisSelvagens/:id": "v1.wild-animals.getById",
+                    "POST /animaisSelvagens": "v1.wild-animals.create",
+                    "PUT /animaisSelvagens/:id": "v1.wild-animals.update",
+                    "PUT /animaisSelvagens/update_resolved/:id": "v1.wild-animals.updateResolved",
+                    "DELETE /animaisSelvagens/:id": "v1.wild-animals.delete",
+
+                    "GET /semTeto": "homeless-people.getAll",
+                    "GET /semTeto/:id": "homeless-people.getById",
+                    "POST /semTeto": "homeless-people.create",
+                    "PUT /semTeto/:id": "homeless-people.update",
+                    "PUT /semTeto/update_resolved/:id": "homeless-people.updateResolved",
+                    "DELETE /semTeto/:id": "homeless-people.delete",
+
                     "GET /animais_abandonados": "v1.animais-abandonados-service.getAll",
                     "GET /animais_abandonados/:id": "v1.animais-abandonados-service.getById",
                     "POST /animais_abandonados": "v1.animais-abandonados-service.create",
@@ -101,6 +115,13 @@ module.exports = {
                     "PUT /animais_sinantropicos/:id": "v1.animais-sinantropicos-service.update",
                     "PUT /animais_sinantropicos/update_resolved/:id": "v1.animais-sinantropicos-service.updateResolved",
                     "DELETE /animais_sinantropicos/:id": "v1.animais-sinantropicos-service.delete",
+
+                    "GET /information-about-trees": "information-about-trees.getAll",
+                    "GET /information-about-trees/:id": "information-about-trees.getById",
+                    "POST /information-about-trees": "information-about-trees.create",
+                    "PUT /information-about-trees/:id": "information-about-trees.update",
+                    "DELETE /information-about-trees/:id": "information-about-trees.delete",
+
 
                     "GET /foco_escorpiao": "v1.foco-escorpiao-service.getAll",
                     "GET /foco_escorpiao/:id": "v1.foco-escorpiao-service.getById",
@@ -170,6 +191,13 @@ module.exports = {
                     "PUT /radar_dengue/:id": "v1.radar-dengue-service.update",
                     "PUT /radar_dengue/update_resolved/:id": "v1.radar-dengue-service.updateResolved",
                     "DELETE /radar_dengue/:id": "v1.radar-dengue-service.delete",
+
+                    "GET /solidary-disposal": "v1.solidary-disposal.getAll",
+                    "GET /solidary-disposal/:id": "v1.solidary-disposal.getById",
+                    "POST /solidary-disposal": "v1.solidary-disposal.create",
+                    "PUT /solidary-disposal/:id": "v1.solidary-disposal.update",
+                    "PUT /solidary-disposal/update_resolved/:id": "v1.solidary-disposal.updateResolved",
+                    "DELETE /solidary-disposal/:id": "v1.solidary-disposal.delete",
 
                     "GET /tumulos": "v1.tumulos-service.getAll",
                     "GET /tumulos/:id": "v1.tumulos-service.getById",
@@ -262,6 +290,14 @@ module.exports = {
                     "PUT /ofertas/update_resolved/:id": "ofertas-service.updateResolved",
                     "DELETE /ofertas/:id": "ofertas-service.delete",
 
+                    "POST /feira": "fair.create",
+                    "GET /feira": "fair.getAll",
+                    "GET /feira/markers": "fair.getAllMarkers",
+                    "PUT /feira/:id": "fair.update",
+                    "PUT /feira/update_resolved/:id": "fair.updateResolved",
+                    "DELETE /feira/:id": "fair.delete",
+
+
                     "POST /programacao": "programacao-service.create",
                     "GET /programacao": "programacao-service.getAll",
                     "GET /programacao/markers": "programacao-service.getAllMarkers",
@@ -282,6 +318,36 @@ module.exports = {
                     "PUT /sugestoes/:id": "sugestoes-service.update",
                     "PUT /sugestoes/update_resolved/:id": "sugestoes-service.updateResolved",
                     "DELETE /sugestoes/:id": "sugestoes-service.delete",
+
+                    "POST /diaristas": "diarist-janitor.create",
+                    "GET /diaristas": "diarist-janitor.getAll",
+                    "GET /diaristas/markers": "diarist-janitor.getAllMarkers",
+                    "PUT /diaristas/:id": "diarist-janitor.update",
+                    "PUT /diaristas/update_resolved/:id": "diarist-janitor.updateResolved",
+                    "DELETE /diaristas/:id": "diarist-janitor.delete",
+
+                    "POST /violenciaDomestica": "victims-of-domestic-violence.create",
+                    "GET /violenciaDomestica": "victims-of-domestic-violence.getAll",
+                    "GET /violenciaDomestica/markers": "victims-of-domestic-violence.getAllMarkers",
+                    "PUT /violenciaDomestica/:id": "victims-of-domestic-violence.update",
+                    "PUT /violenciaDomestica/update_resolved/:id": "victims-of-domestic-violence.updateResolved",
+                    "DELETE /violenciaDomestica/:id": "victims-of-domestic-violence.delete",
+
+                    "POST /familiasCarentes": "needy-families.create",
+                    "GET /familiasCarentes": "needy-families.getAll",
+                    "GET /familiasCarentes/markers": "needy-families.getAllMarkers",
+                    "PUT /familiasCarentes/:id": "needy-families.update",
+                    "PUT /familiasCarentes/update_resolved/:id": "needy-families.updateResolved",
+                    "DELETE /familiasCarentes/:id": "needy-families.delete",
+
+                    "POST /roubos": "theft-register.create",
+                    "GET /roubos": "theft-register.getAll",
+                    "GET /roubos/markers": "theft-register.getAllMarkers",
+                    "PUT /roubos/:id": "theft-register.update",
+                    "PUT /roubos/update_resolved/:id": "theft-register.updateResolved",
+                    "DELETE /roubos/:id": "theft-register.delete",
+
+
 
                     "POST /image": "image-service.create",
                     "GET /image": "image-service.getAll",

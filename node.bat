@@ -13,7 +13,13 @@ start npm start
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\animais-perdidos-service"
 start npm start
 
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\animais-selvagens-service"
+start npm start
+
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\animais-sinantropicos-service"
+start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\animal-violence-service"
 start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\anticorrupcao-service"
@@ -34,6 +40,9 @@ start npm start
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\facilities-inspection"
 start npm start
 
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\familias-carentes-service"
+start npm start
+
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\feira-service"
 start npm start
 
@@ -44,6 +53,9 @@ cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\fountains-monuments"
 start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\gestores-service"
+start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\homeless-people"
 start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\idealizacaoComercial-service"
@@ -103,7 +115,19 @@ start npm start
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\radar-dengue-service"
 start npm start
 
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\registr-roubo-service"
+start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\remocao-animais-mortos-service"
+start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\remocao-lixo-service"
+start npm start
+
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\rurais-service"
+start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\solidary-disposal-service"
 start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\street-lighting"
@@ -115,8 +139,14 @@ start npm start
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\sugestoes-service"
 start npm start
 
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\trees-service"
+start npm start
+
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\tumulos-service"
 start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\useful-contacts"
+start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\violencia-domestica-service"
 start npm start
