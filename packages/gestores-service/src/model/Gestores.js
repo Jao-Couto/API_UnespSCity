@@ -13,7 +13,6 @@ const schema = mongoose.Schema({
     images: [String],
     isResolved: Boolean,
     name: String,
-    cargo: String
 })
 
 module.exports = mongoose.model("Gestores", schema)

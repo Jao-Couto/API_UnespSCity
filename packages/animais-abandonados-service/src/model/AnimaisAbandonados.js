@@ -1,11 +1,11 @@
-const mongoose = require('mongoose') 
+const mongoose = require('mongoose')
 
 const schema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     userId: Number,
     cityId: Number,
     street: String,
-    number: Number,
+    streetNumber: Number,
     referencePoint: String,
     latitude: Number,
     longitude: Number,

@@ -61,7 +61,7 @@ module.exports = {
         update: {
             params: {
                 street: "string",
-                number: "number",
+                streetNumber: "number",
                 referencePoint: "string",
                 latitude: "number",
                 longitude: "number",
@@ -72,7 +72,7 @@ module.exports = {
                     return await Radar_Dengue.updateOne({ _id: ctx.params.id }, {
                         $set: {
                             street: ctx.params.street,
-                            number: ctx.params.number,
+                            streetNumber: ctx.params.streetNumber,
                             referencePoint: ctx.params.referencePoint,
                             latitude: ctx.params.latitude,
                             longitude: ctx.params.longitude,

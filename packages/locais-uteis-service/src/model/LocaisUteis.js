@@ -4,7 +4,7 @@ const schema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     cityId: Number,
     street: String,
-    number: Number,
+    streetNumber: Number,
     referencePoint: String,
     latitude: Number,
     longitude: Number,

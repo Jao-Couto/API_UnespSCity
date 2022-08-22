@@ -160,7 +160,7 @@ module.exports = {
 
                     "GET /locais_uteis": "v1.locais-uteis-service.getAll",
                     "GET /locais_uteis/:id": "v1.locais-uteis-service.getById",
-                    "POST /locais_uteis": "v1.locais-uteiso-service.create",
+                    "POST /locais_uteis": "v1.locais-uteis-service.create",
                     "PUT /locais_uteis/:id": "v1.locais-uteis-service.update",
                     "DELETE /locais_uteis/:id": "v1.locais-uteis-service.delete",
 

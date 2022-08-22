@@ -11,7 +11,7 @@ module.exports = {
                 userId: "number",
                 cityId: "number",
                 street: "string",
-                number: "number",
+                streetNumber: "number",
                 referencePoint: "string",
                 latitude: "number",
                 longitude: "number",
@@ -22,14 +22,14 @@ module.exports = {
                 const timeElapsed = Date.now();
                 const today = new Date(timeElapsed);
                 if (ctx.params) {
-                    if (ctx.params.lastTimeSeen && ctx.params.street && ctx.params.number && ctx.params.referencePoint && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
+                    if (ctx.params.lastTimeSeen && ctx.params.street && ctx.params.streetNumber && ctx.params.referencePoint && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
                         return Animais_Perdidos.create({
                             _id,
                             lastTimeSeen: ctx.params.lastTimeSeen,
                             userId: ctx.params.userId,
                             cityId: ctx.params.cityId,
                             street: ctx.params.street,
-                            number: ctx.params.number,
+                            streetNumber: ctx.params.streetNumber,
                             referencePoint: ctx.params.referencePoint,
                             latitude: ctx.params.latitude,
                             longitude: ctx.params.longitude,
@@ -64,7 +64,7 @@ module.exports = {
             params: {
                 lastTimeSeen: "string",
                 street: "string",
-                number: "number",
+                streetNumber: "number",
                 referencePoint: "string",
                 latitude: "number",
                 longitude: "number",
@@ -72,16 +72,18 @@ module.exports = {
             },
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Animais_Perdidos.updateOne({ _id: ctx.params.id }, { $set: {
-                        lastTimeSeen: ctx.params.lastTimeSeen,
-                        street: ctx.params.street,
-                        number: ctx.params.number,
-                        referencePoint: ctx.params.referencePoint,
-                        latitude: ctx.params.latitude,
-                        longitude: ctx.params.longitude,
-                        description: ctx.params.description,
-                        images: ctx.params.images, 
-                    } });
+                    return await Animais_Perdidos.updateOne({ _id: ctx.params.id }, {
+                        $set: {
+                            lastTimeSeen: ctx.params.lastTimeSeen,
+                            street: ctx.params.street,
+                            streetNumber: ctx.params.streetNumber,
+                            referencePoint: ctx.params.referencePoint,
+                            latitude: ctx.params.latitude,
+                            longitude: ctx.params.longitude,
+                            description: ctx.params.description,
+                            images: ctx.params.images,
+                        }
+                    });
                 }
                 return false
             }

@@ -15,7 +15,6 @@ module.exports = {
                 longitude: "number",
                 description: "string",
                 name: "string",
-                cargo: "string"
             },
             async handler(ctx) {
                 return Gestores.create({
@@ -30,7 +29,6 @@ module.exports = {
                     images: [ctx.params.images],
                     isResolved: false,
                     name: ctx.params.name,
-                    cargo: ctx.params.cargo
                 })
             }
         },
@@ -69,8 +67,7 @@ module.exports = {
                             longitude: ctx.params.longitude,
                             description: ctx.params.description,
                             images: ctx.params.images,
-                            name: ctx.params.name,
-                            cargo: ctx.params.cargo
+                            name: ctx.params.name
                         }
                     });
                 }

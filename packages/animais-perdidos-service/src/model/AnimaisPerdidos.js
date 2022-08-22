@@ -6,7 +6,7 @@ const schema = mongoose.Schema({
     userId: Number,
     cityId: Number,
     street: String,
-    number: Number,
+    streetNumber: Number,
     referencePoint: String,
     latitude: Number,
     longitude: Number,
