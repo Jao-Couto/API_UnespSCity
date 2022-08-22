@@ -210,9 +210,11 @@ module.exports = {
 
                     "POST /cidade": "cidade-service.create",
                     "GET /cidade": "cidade-service.getAll",
+                    "GET /cidade/:cityId": "cidade-service.getOne",
 
                     "POST /cidadao": "cidadao-service.create",
                     "GET /cidadao": "cidadao-service.getAll",
+                    "GET /cidadao/:userId": "cidadao-service.getOne",
                     "PUT /updateOne_cidadao": "cidadao-service.updateOne",
                     "PUT /update_cidadao": "cidadao-service.updatePanicButton",
                     "POST /cidadao/login": "cidadao-service.login",

@@ -47,6 +47,22 @@ module.exports = {
                     });
             }
         },
+        getOne: {
+            params: {
+                cityId: "string"
+            },
+            handler(ctx) {
+                return this.DB_Cidades.findOne(ctx, { query: { id: ctx.params.cityId } })
+                    .then((res) => {
+                        console.log("Search Complete", res.data);
+                        return res.data
+                    })
+                    .catch((err) => {
+                        console.log("error: " + err);
+                        return []
+                    });
+            }
+        },
 
     },
     methods: {
