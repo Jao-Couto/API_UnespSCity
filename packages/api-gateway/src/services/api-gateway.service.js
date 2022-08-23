@@ -28,6 +28,13 @@ module.exports = {
                     "PUT /facilities_inspection/update_resolved/:id": "v1.facilities-inspection-service.updateResolved",
                     "DELETE /facilities_inspection/:id": "v1.facilities-inspection-service.delete",
 
+                    "GET /acidentes": "v1.accident-records.getAll",
+                    "GET /acidentes/:id": "v1.accident-records.getById",
+                    "POST /acidentes": "v1.accident-records.create2",
+                    "PUT /acidentes/:id": "v1.accident-records.update",
+                    "PUT /acidentes/update_resolved/:id": "v1.accident-records.updateResolved",
+                    "DELETE /acidentes/:id": "v1.accident-records.delete",
+
                     "GET /monument": "v1.fountains-monuments-service.getAll",
                     "GET /monument/:id": "v1.fountains-monuments-service.getById",
                     "POST /monument": "v1.fountains-monuments-service.create",

@@ -9,7 +9,11 @@ module.exports = {
             params: {
                 userId: "number",
                 cityId: "number",
-                owner: "string",
+                street: "string",
+                streetNumber: "number",
+                referencePoint: "string",
+                latitude: "number",
+                longitude: "number",
                 description: "string",
             },
             async handler(ctx) {
@@ -17,12 +21,16 @@ module.exports = {
                 const timeElapsed = Date.now();
                 const today = new Date(timeElapsed);
                 if (ctx.params) {
-                    if (ctx.params.owner && ctx.params.description && ctx.params.images) {
+                    if (ctx.params.street && ctx.params.streetNumber && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
                         return Adocao_Animais.create({
                             _id,
                             userId: ctx.params.userId,
                             cityId: ctx.params.cityId,
-                            owner: ctx.params.owner,
+                            street: ctx.params.street,
+                            streetNumber: ctx.params.streetNumber,
+                            referencePoint: ctx.params.referencePoint,
+                            latitude: ctx.params.latitude,
+                            longitude: ctx.params.longitude,
                             description: ctx.params.description,
                             images: ctx.params.images,
                             date: today,
@@ -57,11 +65,13 @@ module.exports = {
             },
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await Adocao_Animais.updateOne({ _id: ctx.params.id }, { $set: {
-                        owner: ctx.params.owner,
-                        description: ctx.params.description,
-                        images: ctx.params.images, 
-                    } });
+                    return await Adocao_Animais.updateOne({ _id: ctx.params.id }, {
+                        $set: {
+                            owner: ctx.params.owner,
+                            description: ctx.params.description,
+                            images: ctx.params.images,
+                        }
+                    });
                 }
                 return false
             }

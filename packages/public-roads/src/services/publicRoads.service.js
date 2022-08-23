@@ -1,5 +1,5 @@
 const PublicRoads = require("../model/PublicRoads")
-
+const mongoose = require("mongoose");
 module.exports = {
     name: "public-roads-service",
     version: 1,
@@ -8,27 +8,27 @@ module.exports = {
             async handler(ctx) {
                 const _id = mongoose.Types.ObjectId();
                 const timeElapsed = Date.now();
-	            const today = new Date(timeElapsed);
+                const today = new Date(timeElapsed);
                 if (ctx.params) {
-                    if (ctx.params.street 
+                    if (ctx.params.street
                         && ctx.params.streetNumber
                         && ctx.params.referencePoint
                         && ctx.params.latitude
                         && ctx.params.longitude
                         && ctx.params.description
                         && ctx.params.images
-                        ) {
+                    ) {
                         return PublicRoads.create({
                             _id,
                             userId: ctx.params.userId,
-                            cityId: ctx.params.cityId, 
+                            cityId: ctx.params.cityId,
                             street: ctx.params.street,
                             streetNumber: ctx.params.streetNumber,
-                            referencePoint: ctx.params.referencePoint, 
+                            referencePoint: ctx.params.referencePoint,
                             latitude: ctx.params.latitude,
-                            longitude: ctx.params.longitude, 
+                            longitude: ctx.params.longitude,
                             description: ctx.params.description,
-                            images: ctx.params.images, 
+                            images: ctx.params.images,
                             isResolved: false,
                             date: today
                         })
@@ -56,15 +56,17 @@ module.exports = {
         update: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await PublicRoads.updateOne({ _id: ctx.params.id }, { $set: {
-                        street: ctx.params.street,
-                        streetNumber: ctx.params.streetNumber,
-                        referencePoint: ctx.params.referencePoint, 
-                        latitude: ctx.params.latitude,
-                        longitude: ctx.params.longitude, 
-                        description: ctx.params.description,
-                        images: ctx.params.images, 
-                    } });
+                    return await PublicRoads.updateOne({ _id: ctx.params.id }, {
+                        $set: {
+                            street: ctx.params.street,
+                            streetNumber: ctx.params.streetNumber,
+                            referencePoint: ctx.params.referencePoint,
+                            latitude: ctx.params.latitude,
+                            longitude: ctx.params.longitude,
+                            description: ctx.params.description,
+                            images: ctx.params.images,
+                        }
+                    });
                 }
                 return false
             }

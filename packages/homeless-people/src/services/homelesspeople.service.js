@@ -9,30 +9,30 @@ module.exports = {
                 const _id = mongoose.Types.ObjectId();
                 const timeElapsed = Date.now();
                 const today = new Date(timeElapsed);
-                if (ctx.params.data) {
+                if (ctx.params) {
                     if (
-                        ctx.params.data.userId &&
-                        ctx.params.data.cityId &&
-                        ctx.params.data.rg &&
-                        ctx.params.data.cpf &&
-                        ctx.params.data.birthday &&
-                        ctx.params.data.latitude &&
-                        ctx.params.data.longitude &&
-                        ctx.params.data.description &&
-                        ctx.params.data.images
+                        ctx.params.userId &&
+                        ctx.params.cityId &&
+                        ctx.params.rg &&
+                        ctx.params.cpf &&
+                        ctx.params.birthday &&
+                        ctx.params.latitude &&
+                        ctx.params.longitude &&
+                        ctx.params.description &&
+                        ctx.params.images
                     ) {
                         return HomelessPeople.create({
                             _id,
-                            userId: ctx.params.data.userId,
-                            rg: ctx.params.data.rg,
-                            cityId: ctx.params.data.cityId,
-                            rg: ctx.params.data.rg,
-                            cpf: ctx.params.data.cpf,
-                            birthday: ctx.params.data.birthday,
-                            latitude: ctx.params.data.latitude,
-                            longitude: ctx.params.data.longitude,
-                            description: ctx.params.data.description,
-                            images: ctx.params.data.images,
+                            userId: ctx.params.userId,
+                            rg: ctx.params.rg,
+                            cityId: ctx.params.cityId,
+                            rg: ctx.params.rg,
+                            cpf: ctx.params.cpf,
+                            birthday: ctx.params.birthday,
+                            latitude: ctx.params.latitude,
+                            longitude: ctx.params.longitude,
+                            description: ctx.params.description,
+                            images: ctx.params.images,
                             date: today,
                         });
                     }
@@ -60,20 +60,20 @@ module.exports = {
 
         update: {
             async handler(ctx) {
-                if (ctx.params && ctx.params.data.id) {
+                if (ctx.params && ctx.params.id) {
                     return await HomelessPeople.updateOne(
-                        { _id: ctx.params.data.id },
+                        { _id: ctx.params.id },
                         {
                             $set: {
-                                userId: ctx.params.data.userId,
-                                userId: ctx.params.data.cityId,
-                                street: ctx.params.data.street,
-                                streetNumber: ctx.params.data.streetNumber,
-                                referencePoint: ctx.params.data.referencePoint,
-                                latitude: ctx.params.data.latitude,
-                                longitude: ctx.params.data.longitude,
-                                description: ctx.params.data.description,
-                                images: ctx.params.data.images,
+                                userId: ctx.params.userId,
+                                userId: ctx.params.cityId,
+                                street: ctx.params.street,
+                                streetNumber: ctx.params.streetNumber,
+                                referencePoint: ctx.params.referencePoint,
+                                latitude: ctx.params.latitude,
+                                longitude: ctx.params.longitude,
+                                description: ctx.params.description,
+                                images: ctx.params.images,
                             },
                         }
                     );

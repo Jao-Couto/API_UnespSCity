@@ -66,7 +66,7 @@ module.exports = {
 
         getOne: {
             params: {
-                userId: "string"
+                userId: "number"
             },
             handler(ctx) {
                 return this.DB_Cidadaos.findOne(ctx, { query: { id: ctx.params.userId } })

@@ -15,13 +15,14 @@ module.exports = {
                 latitude: "number",
                 longitude: "number",
                 description: "string",
+                lastTimeSeen: "string",
             },
             async handler(ctx) {
                 const _id = mongoose.Types.ObjectId();
                 const timeElapsed = Date.now();
                 const today = new Date(timeElapsed);
                 if (ctx.params) {
-                    if (ctx.params.street && ctx.params.streetNumber && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
+                    if (ctx.params.lastTimeSeen && ctx.params.street && ctx.params.streetNumber && ctx.params.latitude && ctx.params.longitude && ctx.params.description && ctx.params.images) {
                         return Animais_Abandonados.create({
                             _id,
                             userId: ctx.params.userId,
@@ -34,7 +35,8 @@ module.exports = {
                             description: ctx.params.description,
                             images: ctx.params.images,
                             date: today,
-                            isResolved: false
+                            isResolved: false,
+                            lastTimeSeen: ctx.params.lastTimeSeen
                         })
                     }
                 }

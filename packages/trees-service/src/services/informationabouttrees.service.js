@@ -7,31 +7,30 @@ module.exports = {
     actions: {
         create: {
             async handler(ctx) {
-                const _id = mongoose.Types.ObjectId();
-                const timeElapsed = Date.now();
-                const today = new Date(timeElapsed);
-                console.log("ARVORE PRA ADICIONAR");
-                console.log(ctx.params.data);
                 if (ctx.params) {
                     if (
-                        ctx.params.data.cityid &&
-                        ctx.params.data.userid &&
-                        ctx.params.data.name &&
-                        ctx.params.data.imgsrc &&
-                        ctx.params.data.specie &&
-                        ctx.params.data.age &&
-                        ctx.params.data.location
+                        ctx.params.cityid &&
+                        ctx.params.userid &&
+                        ctx.params.name &&
+                        ctx.params.images &&
+                        ctx.params.description &&
+                        ctx.params.latitude &&
+                        ctx.params.longitude &&
+                        ctx.params.street &&
+                        ctx.params.streetNumber &&
+                        ctx.params.referencePoint
                     ) {
                         return InformationAboutTrees.create({
-                            _id,
-                            cityid: ctx.params.data.cityid,
-                            userid: ctx.params.data.userid,
-                            name: ctx.params.data.name,
-                            imgsrc: ctx.params.data.imgsrc,
-                            specie: ctx.params.data.specie,
-                            age: ctx.params.data.age,
-                            location: ctx.params.data.location,
-                            date: today,
+                            cityid: ctx.params.cityid,
+                            userid: ctx.params.userid,
+                            name: ctx.params.name,
+                            images: ctx.params.images,
+                            description: ctx.params.description,
+                            latitude: ctx.params.latitude,
+                            longitude: ctx.params.longitude,
+                            street: ctx.params.street,
+                            streerNumber: ctx.params.streerNumber,
+                            referencePoint: ctx.params.referencePoint
                         });
                     }
                 }

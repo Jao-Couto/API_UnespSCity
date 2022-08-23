@@ -121,7 +121,7 @@ start npm start
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\remocao-animais-mortos-service"
 start npm start
 
-cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\remocao-lixo-service"
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\removao-lixo-service"
 start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\rurais-service"

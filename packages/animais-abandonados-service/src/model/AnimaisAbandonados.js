@@ -12,7 +12,8 @@ const schema = mongoose.Schema({
     description: String,
     images: [String],
     date: Date,
-    isResolved: Boolean
+    isResolved: Boolean,
+    lastTimeSeen: String,
 })
 
 module.exports = mongoose.model("Animais_Abandonados", schema)
