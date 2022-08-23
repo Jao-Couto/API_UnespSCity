@@ -1,5 +1,5 @@
 const UsefulContacts = require("../model/UsefulContacts")
-
+const mongoose = require('mongoose')
 module.exports = {
     name: "useful-contacts-service",
     version: 1,
@@ -12,14 +12,14 @@ module.exports = {
                         && ctx.params.phoneNumber
                         && ctx.params.description
                         && ctx.params.images
-                        ) {
+                    ) {
                         return UsefulContacts.create({
                             _id,
-                            idCity: ctx.params.idCity,
-                            name: ctx.params.name, 
+                            cityId: ctx.params.cityId,
+                            name: ctx.params.name,
                             phoneNumber: ctx.params.phoneNumber,
                             description: ctx.params.description,
-                            images: ctx.params.images, 
+                            images: ctx.params.images,
                         })
                     }
                 }
@@ -36,12 +36,14 @@ module.exports = {
         update: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
-                    return await UsefulContacts.updateOne({ _id: ctx.params.id }, { $set: {
-                        name: ctx.params.name, 
-                        phoneNumber: ctx.params.phoneNumber,
-                        description: ctx.params.description,
-                        images: ctx.params.images, 
-                    } });
+                    return await UsefulContacts.updateOne({ _id: ctx.params.id }, {
+                        $set: {
+                            name: ctx.params.name,
+                            phoneNumber: ctx.params.phoneNumber,
+                            description: ctx.params.description,
+                            images: ctx.params.images,
+                        }
+                    });
                 }
                 return false
             }

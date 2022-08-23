@@ -39,10 +39,10 @@ broker.start().then(() => {
     broker.call("submenu-service.create", { name: "Adoção de animais", menuId: 6, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "LostAnimals" });
     broker.call("submenu-service.create", { name: "Denúncia de maus tratos de animais", menuId: 6, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Adoção de Áreas públicas", menuId: 7, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "PublicAreas" });
-    broker.call("submenu-service.create", { name: "Indicadores de poluição", menuId: 7, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
+    //broker.call("submenu-service.create", { name: "Indicadores de poluição", menuId: 7, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Coleta de Lixo / Coleta seletiva", menuId: 7, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "MapColetaLixo" });
     broker.call("submenu-service.create", { name: "Animais Silvestres", menuId: 8, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
-    broker.call("submenu-service.create", { name: "Danos à Fauna", menuId: 8, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
+    //broker.call("submenu-service.create", { name: "Danos à Fauna", menuId: 8, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Cadastro de árvores", menuId: 8, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Locais úteis ao cidadão", menuId: 9, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "PublicAreas" });
     broker.call("submenu-service.create", { name: "Telefones Úteis", menuId: 9, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "PublicAreas" });
@@ -56,17 +56,17 @@ broker.start().then(() => {
     broker.call("submenu-service.create", { name: "Denúncia de violência doméstica", menuId: 11, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Ocorrência de Acidentes", menuId: 11, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Ocorrência de Furtos/Roubos", menuId: 11, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
-    broker.call("submenu-service.create", { name: "Mulheres", menuId: 12, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
-    broker.call("submenu-service.create", { name: "Idosos", menuId: 12, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
+    //broker.call("submenu-service.create", { name: "Mulheres", menuId: 12, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
+    //broker.call("submenu-service.create", { name: "Idosos", menuId: 12, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Conheça os Gestores", menuId: 13, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "PublicAreas" });
     broker.call("submenu-service.create", { name: "Consultar Propostas", menuId: 13, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "PublicAreas" });
     broker.call("submenu-service.create", { name: "Central Anticorrupção", menuId: 13, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Notícias", menuId: 14, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "PublicAreas" });
     broker.call("submenu-service.create", { name: "Sugestões", menuId: 14, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
-    broker.call("submenu-service.create", { name: "Rotas dos guardas", menuId: 15, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "MapColetaLixo" });
-    broker.call("submenu-service.create", { name: "Trânsito", menuId: 15, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
-    broker.call("submenu-service.create", { name: "Rota de Veículos", menuId: 15, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "MapColetaLixo" });
-    broker.call("submenu-service.create", { name: "Cartão fidelidade", menuId: 16, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
+    //broker.call("submenu-service.create", { name: "Rotas dos guardas", menuId: 15, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "MapColetaLixo" });
+    //broker.call("submenu-service.create", { name: "Trânsito", menuId: 15, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
+    //broker.call("submenu-service.create", { name: "Rota de Veículos", menuId: 15, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "MapColetaLixo" });
+    //broker.call("submenu-service.create", { name: "Cartão fidelidade", menuId: 16, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "Solicitacao" });
     broker.call("submenu-service.create", { name: "Ofertas Locais", menuId: 16, logo: 'https://unesp-s-city.s3.sa-east-1.amazonaws.com/icones/home_controle_pragas.png', type: "PublicAreas" });
 
     broker.repl()

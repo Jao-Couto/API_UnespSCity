@@ -239,7 +239,7 @@ module.exports = {
 
                     "POST /praca": "praca-service.create",
                     "GET /praca": "praca-service.getAll",
-                    "GET /praca/markers": "praca-service.getAllMarkers",
+                    "GET /praca/markers/:cityId": "praca-service.getAllMarkers",
                     "PUT /praca/:id": "praca-service.update",
                     "PUT /praca/update_resolved/:id": "praca-service.updateResolved",
                     "DELETE /praca/:id": "praca-service.delete",
@@ -329,12 +329,12 @@ module.exports = {
                     "PUT /sugestoes/update_resolved/:id": "sugestoes-service.updateResolved",
                     "DELETE /sugestoes/:id": "sugestoes-service.delete",
 
-                    "POST /diaristas": "diarist-janitor.create",
-                    "GET /diaristas": "diarist-janitor.getAll",
-                    "GET /diaristas/markers": "diarist-janitor.getAllMarkers",
-                    "PUT /diaristas/:id": "diarist-janitor.update",
-                    "PUT /diaristas/update_resolved/:id": "diarist-janitor.updateResolved",
-                    "DELETE /diaristas/:id": "diarist-janitor.delete",
+                    "POST /diaristas": "v1.diarist-janitor.create",
+                    "GET /diaristas": "v1.diarist-janitor.getAll",
+                    "GET /diaristas/markers": "v1.diarist-janitor.getAllMarkers",
+                    "PUT /diaristas/:id": "v1.diarist-janitor.update",
+                    "PUT /diaristas/update_resolved/:id": "v1.diarist-janitor.updateResolved",
+                    "DELETE /diaristas/:id": "v1.diarist-janitor.delete",
 
                     "POST /violenciaDomestica": "v1.victims-of-domestic-violence.create",
                     "GET /violenciaDomestica": "v1.victims-of-domestic-violence.getAll",

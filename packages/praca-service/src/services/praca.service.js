@@ -40,7 +40,7 @@ module.exports = {
 
         getAllMarkers: {
             async handler(ctx) {
-                return await Praca.find({ isResolved: false }, "latitude longitude date")
+                return await Praca.find({ isResolved: false, cityId: ctx.params.cityId }, "latitude longitude date")
             }
         },
 
