@@ -4,6 +4,11 @@ const { SERVER } = require("../../../config")
 
 const inicial = async () => {
     await mongoose.connect(SERVER)
+    const db = mongoose.connection;
+    db.on("error", (error) => console.error(error));
+    db.once("open", () => console.log("Connected to MongoDB"));
+    console.log("models", mongoose.modelNames());
+
 
     const broker = new ServiceBroker({
         transporter: "TCP"

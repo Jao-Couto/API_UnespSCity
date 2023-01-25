@@ -27,7 +27,8 @@ module.exports = {
                     longitude: ctx.params.longitude,
                     description: ctx.params.description,
                     images: [ctx.params.images],
-                    isResolved: false
+                    isResolved: false,
+                    history: []
                 })
             }
         },
@@ -35,6 +36,15 @@ module.exports = {
         getAll: {
             async handler(ctx) {
                 return await Praca.find()
+            }
+        },
+
+        getById: {
+            params: {
+                id: "string",
+            },
+            async handler(ctx) {
+                return await Praca.find({ _id: ctx.params.id })
             }
         },
 
@@ -78,6 +88,29 @@ module.exports = {
                     return await Praca.updateOne({ _id: ctx.params.id }, { $set: { isResolved: true } });
                 }
                 return false
+            }
+        },
+
+        addHistory: {
+            params: {
+                id: "string",
+                userId: "number",
+                description: "string"
+            },
+            async handler(ctx) {
+                const timeElapsed = Date.now();
+                const today = new Date(timeElapsed);
+                const userName = await ctx.call("cidadao-service.getOne", { userId: ctx.params.userId + "" });
+                return await Praca.updateOne({ _id: ctx.params.id }, {
+                    $push: {
+                        history: {
+                            userId: ctx.params.userId,
+                            userName: userName.name,
+                            description: ctx.params.description,
+                            date: today
+                        }
+                    }
+                });
             }
         },
 

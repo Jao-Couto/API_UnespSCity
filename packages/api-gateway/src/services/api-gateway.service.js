@@ -239,17 +239,22 @@ module.exports = {
 
                     "POST /praca": "praca-service.create",
                     "GET /praca": "praca-service.getAll",
+                    "GET /praca/getOne/:id": "praca-service.getById",
                     "GET /praca/markers/:cityId": "praca-service.getAllMarkers",
                     "PUT /praca/:id": "praca-service.update",
                     "PUT /praca/update_resolved/:id": "praca-service.updateResolved",
                     "DELETE /praca/:id": "praca-service.delete",
+                    "POST /praca/addHistory": "praca-service.addHistory",
+
 
                     "POST /parques": "parques-service.create",
                     "GET /parques": "parques-service.getAll",
+                    "GET /parques/getOne/:id": "praca-service.getById",
                     "GET /parques/markers": "parques-service.getAllMarkers",
                     "PUT /parques/:id": "parques-service.update",
                     "PUT /parques/update_resolved/:id": "parques-service.updateResolved",
                     "DELETE /parques/:id": "parques-service.delete",
+                    "POST /parques/addHistory": "parques-service.addHistory",
 
                     "POST /rurais": "rurais-service.create",
                     "GET /rurais": "rurais-service.getAll",
@@ -356,6 +361,10 @@ module.exports = {
                     "PUT /roubos/:id": "v1.theft-register.update",
                     "PUT /roubos/update_resolved/:id": "v1.theft-register.updateResolved",
                     "DELETE /roubos/:id": "v1.theft-register.delete",
+
+                    "POST /refuse": "v1.refuse-collection.create",
+                    "GET /refuse": "v1.refuse-collection.getAll",
+                    "GET /refuse?:cityid": "v1.refuse-collection.getByCityId",
 
 
 

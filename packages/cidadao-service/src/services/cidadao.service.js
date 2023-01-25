@@ -66,16 +66,16 @@ module.exports = {
 
         getOne: {
             params: {
-                userId: "number"
+                userId: "string"
             },
             handler(ctx) {
                 return this.DB_Cidadaos.findOne(ctx, { query: { id: ctx.params.userId } })
                     .then((res) => {
-                        console.log("Search Complete", res.data);
+                        console.log("Search Complete ", res.data);
                         return res.data
                     })
                     .catch((err) => {
-                        console.log("error: " + err);
+                        console.log("error: ", err);
                         return []
                     });
             }

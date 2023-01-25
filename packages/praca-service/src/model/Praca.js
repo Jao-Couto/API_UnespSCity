@@ -11,6 +11,7 @@ const schema = mongoose.Schema({
     description: String,
     date: { type: Date, default: Date.now },
     images: [String],
+    history: [Object],
     isResolved: Boolean
 })
 

@@ -81,6 +81,38 @@ module.exports = {
             }
         },
 
+        getById: {
+            params: {
+                id: "number",
+            },
+            async handler(ctx) {
+                return await Parques.find({ _id: ctx.params.id })
+            }
+        },
+
+        addHistory: {
+            params: {
+                id: "string",
+                userId: "number",
+                description: "string"
+            },
+            async handler(ctx) {
+                const timeElapsed = Date.now();
+                const today = new Date(timeElapsed);
+                const userName = await ctx.call("cidadao-service.getOne", { userId: ctx.params.userId + "" });
+                return await Parques.updateOne({ _id: ctx.params.id }, {
+                    $push: {
+                        history: {
+                            userId: ctx.params.userId,
+                            userName: userName.name,
+                            description: ctx.params.description,
+                            date: today
+                        }
+                    }
+                });
+            }
+        },
+
         delete: {
             async handler(ctx) {
                 if (ctx.params && ctx.params.id) {
