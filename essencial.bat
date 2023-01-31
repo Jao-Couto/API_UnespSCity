@@ -36,3 +36,9 @@ start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\animais-abandonados-service"
 start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\useful-contacts"
+start npm start
+
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\adocao-animais-service"
+start npm start
