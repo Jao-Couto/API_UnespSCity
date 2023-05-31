@@ -1,10 +1,10 @@
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\api-gateway"
 start npm start
 
-cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\cidadao-service"
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\cidade-service"
 start npm start
 
-cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\cidade-service"
+cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\cidadao-service"
 start npm start
 
 cd "C:\Users\joaov\Documents\GitHub\API_UnespSCity\packages\menu-service"
